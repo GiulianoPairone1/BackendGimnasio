@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Enums
 {
-    public class Turn
+    public enum UserType
     {
+        Client,
+        Trainer,
+        Admin,
+        SuperAdmin
     }
 }
