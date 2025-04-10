@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    class EfRepository
+    public class EfRepository
     {
     }
 }

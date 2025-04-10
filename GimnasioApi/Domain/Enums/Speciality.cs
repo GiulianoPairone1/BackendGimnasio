@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Enums
 {
-    public class Class
+    public enum Speciality
     {
+        StrengthTraining,
+        Yoga, 
+        Boxing,
+        Hiit
     }
 }
