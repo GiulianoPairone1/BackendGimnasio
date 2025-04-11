@@ -13,12 +13,18 @@ namespace Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; } 
-        public string Name { get; set; } 
-        public string Surname { get; set; } 
-        public UserType UserType { get; set; } 
-        public string Email { get; set; } 
-        public string Password { get; set; } 
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Surname { get; set; }
+        [Required]
+        public UserType UserType { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
         public int Phone { get; set; } 
         public bool IsAvailable { get; set; } = true;
 

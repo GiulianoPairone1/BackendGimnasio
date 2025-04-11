@@ -13,9 +13,13 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
-        public int Sets { get; set; }         
+        [Required]
+        public int Sets { get; set; }
+        [Required]
         public int Reps { get; set; }
+        [Required]
         public int RestTime { get; set; }
 
         [ForeignKey("Routine")]
