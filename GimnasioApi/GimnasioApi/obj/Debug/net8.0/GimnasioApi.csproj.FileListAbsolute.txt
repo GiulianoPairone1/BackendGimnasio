@@ -52,3 +52,14 @@ C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proy
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\BackendGimnasio\GimnasioApi\GimnasioApi\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\BackendGimnasio\GimnasioApi\GimnasioApi\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\BackendGimnasio\GimnasioApi\GimnasioApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.csproj.AssemblyReference.cache
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.AssemblyInfoInputs.cache
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.AssemblyInfo.cs
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.csproj.CoreCompileInputs.cache
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.sourcelink.json
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\refint\GimnasioApi.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\GimnasioApi\obj\Debug\net8.0\GimnasioApi.pdb
