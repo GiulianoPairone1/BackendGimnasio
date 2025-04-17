@@ -16,9 +16,12 @@ namespace Domain.Entities
             UserType = UserType.Trainer;
         }
 
-        public Speciality? TrainerSpeciality { get; set; } 
+        [Required]
+        public Speciality? TrainerSpeciality { get; set; }
+
 
         public List<GymSession> GymSessions { get; set; }
+
 
         public ICollection<Routine> Routines { get; set; }
 
