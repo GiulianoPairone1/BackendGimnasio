@@ -1,0 +1,74 @@
+﻿using Domain.Entities;
+using Domain.Enums;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Application.Models.Dtos
+{
+    public class ClientDTO
+    {
+        [Required]
+        public string Name { get; set; }
+        [Required]
+        public string Surname { get; set; }
+        [Required]
+        public string Email { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
+        public int Phone {  get; set; }
+        public double Weight { get; set; }
+        public double Height { get; set; }
+
+
+        //Metodo para crear un Cliente
+        public Client ToClient()
+        {
+            return new Client
+            {
+                Name = this.Name,
+                Surname = this.Surname,
+                Email = this.Email,
+                Password = this.Password,
+                Phone = this.Phone,
+                Weight = this.Weight,
+                Height = this.Height,
+                IsAvailable = true,
+                UserType = UserType.Client
+            };
+        }
+
+        //Metodo para actualizar
+        public void UpdateClient(Client client)
+        {
+            client.Name = this.Name;
+            client.Surname = this.Surname;
+            client.Email = this.Email;
+            client.Password = this.Password;
+            client.Phone = this.Phone;
+            client.Weight = this.Weight;
+            client.Height = this.Height;
+        }
+        public static ClientDTO FromCliente( Client client )
+        {
+            return new ClientDTO
+            {
+                Name = client.Name,
+                Surname = client.Surname,
+                Email = client.Email,
+                Password = client.Password,
+                Phone = client.Phone,
+                Weight = client.Weight,
+                Height = client.Height,
+            };
+        }
+
+        //Metodo para actualizar UserType
+
+
+    }
+}

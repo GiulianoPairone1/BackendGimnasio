@@ -1396,24 +1396,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\maria\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\giuliano\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\GimnasioApi.csproj",
+      "projectUniqueName": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\GimnasioApi.csproj",
       "projectName": "GimnasioApi",
-      "projectPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\GimnasioApi.csproj",
-      "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\obj\\",
+      "projectPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\GimnasioApi.csproj",
+      "packagesPath": "C:\\Users\\giuliano\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\giuliano\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1421,17 +1416,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\Application\\Application.csproj"
+            "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Application\\Application.csproj"
             },
-            "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Práctica Profesional\\Proyecto Back\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -1445,8 +1441,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -1476,7 +1471,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
