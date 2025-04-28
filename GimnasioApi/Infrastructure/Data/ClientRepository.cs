@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    class ClientRepository : RepositoryBase<Client>, IClientRepository
+    public class ClientRepository : EfRepository<Client>, IClientRepository
     {
+        public ClientRepository(ApplicationDbContext context) : base(context) { }
     }
 }

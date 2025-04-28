@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    class TrainerRepository : RepositoryBase<Trainer>, ITrainerRepository
+    public class TrainerRepository : EfRepository<Trainer>, ITrainerRepository
     {
+        public TrainerRepository(ApplicationDbContext context) : base(context) { }
     }
 }

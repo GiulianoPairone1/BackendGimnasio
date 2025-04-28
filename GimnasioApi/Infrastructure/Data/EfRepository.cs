@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class EfRepository
+    public class EfRepository<T> : RepositoryBase<T> where T : class
     {
+        public readonly ApplicationDbContext _applicationDbContext;
+        public EfRepository(ApplicationDbContext dbContext) : base(dbContext)
+        {
+            _applicationDbContext = dbContext;
+        }
     }
 }

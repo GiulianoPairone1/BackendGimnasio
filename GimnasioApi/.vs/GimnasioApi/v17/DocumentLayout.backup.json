@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\entities\\gymsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\gymsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,23 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GymSession.cs",
+              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\GymSession.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\GymSession.cs",
+              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\GymSession.cs",
+              "RelativeToolTip": "Domain\\Entities\\GymSession.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T22:42:08.212Z",
+              "EditorCaption": ""
             }
           ]
         }

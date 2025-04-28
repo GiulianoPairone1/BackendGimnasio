@@ -8,7 +8,8 @@ using Domain.Interfaces;
 
 namespace Infrastructure.Data
 {
-    public class AdminRepository : RepositoryBase<Admin>, IAdminRepository
+    public class AdminRepository : EfRepository<Admin>, IAdminRepository
     {
+        public AdminRepository(ApplicationDbContext context) : base(context) { }
     }
 }
