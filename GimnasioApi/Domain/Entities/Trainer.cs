@@ -14,6 +14,8 @@ namespace Domain.Entities
         public Trainer()
         {
             UserType = UserType.Trainer;
+            GymSessions = new List<GymSession>();
+            Routines = new List<Routine>();
         }
 
         [Required]

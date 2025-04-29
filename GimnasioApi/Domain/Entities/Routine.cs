@@ -13,17 +13,21 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
-        public List<Exercise> Exercises { get; set; }
 
-        [ForeignKey("Trainer")]
-        public int TrainerId { get; set; }
-        public Trainer Trainer { get; set; }
+        public ICollection<RoutineExercise> RoutineExercises { get; set; }
 
-        [ForeignKey("GymSession")]
-        public int GymSessionId { get; set; }
-        public GymSession? GymSession { get; set; }
+        public ICollection<GymSession> GymSessions { get; set; } // Ahora GymSessions en vez de GymSessionRoutine
+
         public bool IsAvailable { get; set; } = true;
+
+        public Routine()
+        {
+            RoutineExercises = new HashSet<RoutineExercise>();
+            GymSessions = new HashSet<GymSession>();
+        }
     }
 }
+

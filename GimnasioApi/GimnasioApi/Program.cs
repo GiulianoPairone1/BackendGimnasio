@@ -1,9 +1,16 @@
 using Application.Interfaces;
 using Application.Services;
 using Domain.Interfaces;
+
+using Infrastructure.Data;
 using Infrastructure.Services;
 
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContextOptions.UseSqlite(
+    builder.Configuration["ConnectionStrings:DBConnectionString"]));
 
 // Add services to the container.
 
