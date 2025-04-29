@@ -14,7 +14,7 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public ICollection<Client> Clients { get; set; }
+
 
         public SessionType SessionType { get; set; }
 
@@ -24,11 +24,19 @@ namespace Domain.Entities
 
         public DateTime SessionDate { get; set; }
 
+        // Nueva relación
         [ForeignKey("Routine")]
-        public int RoutineId { get; set; }
+        public int? RoutineId { get; set; } // Puede ser nullable si querés permitir sesiones sin rutina asignada
         public Routine Routine { get; set; }
 
         public bool IsAvailable { get; set; } = true;
 
+        // Relación muchos a muchos
+        public ICollection<ClientGymSession> ClientGymSessions { get; set; }
+
+        public GymSession()
+        {
+            ClientGymSessions = new List<ClientGymSession>();
+        }
     }
 }

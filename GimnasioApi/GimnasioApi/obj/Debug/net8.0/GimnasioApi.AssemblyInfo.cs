@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GimnasioApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4689bfa59aa585baddaa11d0ea4683a9c67d8406")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16668698557d15b1b4b3ba63465bbaa4983e96ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("GimnasioApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GimnasioApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

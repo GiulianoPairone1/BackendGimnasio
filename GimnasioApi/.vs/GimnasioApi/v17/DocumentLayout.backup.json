@@ -1,58 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\",
+  "WorkspaceRootPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\trainerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\trainerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\interfaces\\itrainerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\itrainerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\clientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\interfaces\\iclientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iclientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\interfaces\\iadminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iadminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\entities\\gymsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\gymsession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\entities\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\exercise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\domain\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F2B9145-7C7A-4D31-AF1B-4C134B5AB9F3}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|c:\\users\\maria\\onedrive\\escritorio\\utn\\cuatrimestre 4\\pr\u00E1ctica profesional\\proyecto back\\backend definitivo\\backendgimnasio\\gimnasioapi\\infrastructure\\data\\efrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\efrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|c:\\users\\giuliano\\desktop\\proyectofinal\\backendgimnasio\\gimnasioapi\\gimnasioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|solutionrelative:gimnasioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,163 +14,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\User.cs",
-              "RelativeToolTip": "Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwCAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T21:02:19.336Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TrainerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\TrainerRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\TrainerRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\TrainerRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\TrainerRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T20:51:06.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\ClientRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\ClientRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\ClientRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\ClientRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T19:31:38.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AdminRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\AdminRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\AdminRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\AdminRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\AdminRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T20:01:19.633Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ITrainerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\ITrainerRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\ITrainerRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\ITrainerRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\ITrainerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T20:52:40.508Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IClientRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\IClientRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\IClientRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\IClientRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\IClientRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T15:34:27.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IAdminRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\IAdminRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\IAdminRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Interfaces\\IAdminRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\IAdminRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T20:01:50.765Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GymSession.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\GymSession.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\GymSession.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\GymSession.cs",
-              "RelativeToolTip": "Domain\\Entities\\GymSession.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-25T22:42:08.212Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Exercise.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\Exercise.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Exercise.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\Exercise.cs",
-              "RelativeToolTip": "Domain\\Entities\\Exercise.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T20:50:15.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T19:42:53.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EfRepository.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\EfRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\EfRepository.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\EfRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\EfRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T19:41:00.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Client.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\Client.cs",
-              "RelativeDocumentMoniker": "Domain\\Entities\\Client.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Domain\\Entities\\Client.cs",
-              "RelativeToolTip": "Domain\\Entities\\Client.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T15:36:24.504Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -226,15 +30,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RepositoryBase.cs",
-              "DocumentMoniker": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\RepositoryBase.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Data\\RepositoryBase.cs",
-              "ToolTip": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\Infrastructure\\Data\\RepositoryBase.cs",
-              "RelativeToolTip": "Infrastructure\\Data\\RepositoryBase.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAqwCEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Program.cs",
+              "RelativeDocumentMoniker": "GimnasioApi\\Program.cs",
+              "ToolTip": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Program.cs",
+              "RelativeToolTip": "GimnasioApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T14:44:49.481Z",
+              "WhenOpened": "2025-04-29T05:07:18.578Z",
               "EditorCaption": ""
             }
           ]

@@ -13,19 +13,27 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [Required]
         public int Sets { get; set; }
+
         [Required]
         public int Reps { get; set; }
+
         [Required]
         public int RestTime { get; set; }
 
-        [ForeignKey("Routine")]
-        public int RoutineId { get; set; }
-        public Routine Routine { get; set; }
+        public ICollection<RoutineExercise> RoutineExercises { get; set; }
+
         public bool IsAvailable { get; set; } = true;
+
+        public Exercise()
+        {
+            RoutineExercises = new List<RoutineExercise>();
+        }
 
     }
 }

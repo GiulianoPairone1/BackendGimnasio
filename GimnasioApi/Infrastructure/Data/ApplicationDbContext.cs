@@ -20,12 +20,15 @@ namespace Infrastructure.Data
         public DbSet<GymSession> GymSessions { get; set; }
         public DbSet<Routine> Routines { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<ClientGymSession> ClientGymSessions { get; set; }
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-         
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<User>()
                 .Property(u => u.UserType)
                 .HasConversion<int>();
@@ -38,101 +41,33 @@ namespace Infrastructure.Data
                 .Property(u => u.SessionType)
                 .HasConversion<int>();
 
-
             modelBuilder.Entity<User>()
-            .HasDiscriminator<UserType>("UserType")
-            .HasValue<Client>(UserType.Client)
-            .HasValue<Trainer>(UserType.Trainer)
-            .HasValue<Admin>(UserType.Admin);
+                .HasDiscriminator<UserType>("UserType")
+                .HasValue<Client>(UserType.Client)
+                .HasValue<Trainer>(UserType.Trainer)
+                .HasValue<Admin>(UserType.Admin);
 
-            modelBuilder.Entity<User>().HasData(CreateGymUserSeed());
-            modelBuilder.Entity<Routine>().HasData(CreateRoutineSeed());
-            modelBuilder.Entity<GymSession>().HasData(CreateGymSessionSeed());
-            
-            
-
-
-            base.OnModelCreating(modelBuilder);
-        }
-
-        private User[] CreateGymUserSeed()
-            {
-              return new User[]
-              {
-                new SuperAdmin
-                    {
-                        Id = 1,
-                        Name = "SuperAdmin",
-                        Surname = "Gym",
-                        Email = "superadmin@gmail.com",
-                        Password = "superadmin",
-
-                    },
-                new Admin
-                    {
-                        Id = 2,
-                        Name = "Admin",
-                        Surname = "Gym",
-                        Email = "admin@gmail.com",
-                        Password = "admin",
-
-                    },
-                new Client
-                    {
-                        Id = 3,
-                        Name = "Client",
-                        Surname = "Gym",
-                        Email = "client@gmail.com",
-                        Password = "client",
-
-                    },
-                new Trainer
-                {
-                        Id = 4,
-                        Name = "Trainer",
-                        Surname = "Gym",
-                        Email = "trainer@gmail.com",
-                        Password = "trainer",
-
-                }
-              };
-            }
+            // Configuración de la relación 1 a muchos entre Routine y GymSession
+            modelBuilder.Entity<GymSession>()
+                .HasOne(gs => gs.Routine)
+                .WithMany(r => r.GymSessions)
+                .HasForeignKey(gs => gs.RoutineId)
+                .OnDelete(DeleteBehavior.Restrict); // IMPORTANTE: evita borrado en cascada si se borra una rutina
 
 
-        private GymSession[] CreateGymSessionSeed()
-        {
-            return new GymSession[]
- {
-            new GymSession
-                {
-                    Id = 1,
-                    SessionType = SessionType.BoxingSession,
-                    TrainerId = 4, 
-                    RoutineId = 1,
-                    SessionDate = new DateTime(2025, 08, 12, 10, 0, 0),
+            modelBuilder.Entity<ClientGymSession>()
+                .HasOne(cgs => cgs.Client)
+                .WithMany(c => c.ClientGymSessions)
+                .HasForeignKey(cgs => cgs.ClientId);
 
-                },
-             };
+
+            modelBuilder.Entity<ClientGymSession>()
+                .HasOne(cgs => cgs.GymSession)
+                .WithMany(gs => gs.ClientGymSessions)
+                .HasForeignKey(cgs => cgs.GymSessionId);
+
 
         }
-
-        private Routine[] CreateRoutineSeed()
-        {
-            return new Routine[]
-            {
-                new Routine
-                {
-                    Id = 1,
-                    Name = "Full Body Beginner",
-                    TrainerId = 4,         
-                    GymSessionId = 1,      
-
-                },
-        
-            };
-        }
-
-        
 
     }
 }
