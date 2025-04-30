@@ -20,10 +20,7 @@ namespace Domain.Entities
         [ForeignKey("Trainer")]
         public int TrainerId { get; set; }
         public Trainer Trainer { get; set; }
-
-        [ForeignKey("GymSession")]
-        public int GymSessionId { get; set; }
-        public GymSession? GymSession { get; set; }
+        public ICollection<GymSession> GymSessions { get; set; }
         public bool IsAvailable { get; set; } = true;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using Application.Interfaces;
+using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Services
 {
-    public class SuperAdminService : ISuperAdminRepository
+    public class SuperAdminService : ISuperAdminService
     {
     }
 }

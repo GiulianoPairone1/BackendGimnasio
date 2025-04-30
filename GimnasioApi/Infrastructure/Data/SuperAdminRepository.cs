@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class SuperAdminRepository : EfRepository<Trainer>, ISuperAdminRepository
+    public class SuperAdminRepository : EfRepository<SuperAdmin>, ISuperAdminRepository
     {
         public SuperAdminRepository(ApplicationDbContext context) : base(context) { }
     }

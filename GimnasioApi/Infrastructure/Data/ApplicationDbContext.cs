@@ -25,7 +25,6 @@ namespace Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-         
             modelBuilder.Entity<User>()
                 .Property(u => u.UserType)
                 .HasConversion<int>();
@@ -38,101 +37,90 @@ namespace Infrastructure.Data
                 .Property(u => u.SessionType)
                 .HasConversion<int>();
 
-
+            // Configuración del discriminador de tipo User
             modelBuilder.Entity<User>()
-            .HasDiscriminator<UserType>("UserType")
-            .HasValue<Client>(UserType.Client)
-            .HasValue<Trainer>(UserType.Trainer)
-            .HasValue<Admin>(UserType.Admin);
+                .HasDiscriminator<UserType>("UserType")
+                .HasValue<Client>(UserType.Client)
+                .HasValue<Trainer>(UserType.Trainer)
+                .HasValue<Admin>(UserType.Admin)
+                .HasValue<SuperAdmin>(UserType.SuperAdmin);
 
-            modelBuilder.Entity<User>().HasData(CreateGymUserSeed());
+            // Datos de semilla para usuarios
+            modelBuilder.Entity<SuperAdmin>().HasData(new SuperAdmin
+            {
+                Id = 1,
+                Name = "SuperAdmin",
+                Surname = "Gym",
+                Email = "superadmin@gmail.com",
+                Password = "superadmin",
+                Phone = 123456789
+            });
+
+            modelBuilder.Entity<Admin>().HasData(new Admin
+            {
+                Id = 2,
+                Name = "Admin",
+                Surname = "Gym",
+                Email = "admin@gmail.com",
+                Password = "admin",
+                Phone = 123456789
+            });
+
+            modelBuilder.Entity<Client>().HasData(new Client
+            {
+                Id = 3,
+                Name = "Client",
+                Surname = "Gym",
+                Email = "client@gmail.com",
+                Password = "client",
+                Phone = 123456789
+            });
+
+            modelBuilder.Entity<Trainer>().HasData(new Trainer
+            {
+                Id = 4,
+                Name = "Trainer",
+                Surname = "Gym",
+                Email = "trainer@gmail.com",
+                Password = "trainer",
+                Phone = 123456789,
+                TrainerSpeciality = Speciality.Hiit
+            });
+
+            // Datos de semilla para Routines y GymSessions
             modelBuilder.Entity<Routine>().HasData(CreateRoutineSeed());
             modelBuilder.Entity<GymSession>().HasData(CreateGymSessionSeed());
-            
-            
-
 
             base.OnModelCreating(modelBuilder);
         }
 
-        private User[] CreateGymUserSeed()
-            {
-              return new User[]
-              {
-                new SuperAdmin
-                    {
-                        Id = 1,
-                        Name = "SuperAdmin",
-                        Surname = "Gym",
-                        Email = "superadmin@gmail.com",
-                        Password = "superadmin",
-
-                    },
-                new Admin
-                    {
-                        Id = 2,
-                        Name = "Admin",
-                        Surname = "Gym",
-                        Email = "admin@gmail.com",
-                        Password = "admin",
-
-                    },
-                new Client
-                    {
-                        Id = 3,
-                        Name = "Client",
-                        Surname = "Gym",
-                        Email = "client@gmail.com",
-                        Password = "client",
-
-                    },
-                new Trainer
-                {
-                        Id = 4,
-                        Name = "Trainer",
-                        Surname = "Gym",
-                        Email = "trainer@gmail.com",
-                        Password = "trainer",
-
-                }
-              };
-            }
-
-
         private GymSession[] CreateGymSessionSeed()
         {
             return new GymSession[]
- {
+            {
             new GymSession
-                {
-                    Id = 1,
-                    SessionType = SessionType.BoxingSession,
-                    TrainerId = 4, 
-                    RoutineId = 1,
-                    SessionDate = new DateTime(2025, 08, 12, 10, 0, 0),
-
-                },
-             };
-
+            {
+                Id = 2,
+                SessionType = SessionType.BoxingSession,
+                TrainerId = 4,
+                RoutineId = 2,  // Cambiar para evitar conflicto de IDs
+                SessionDate = new DateTime(2025, 08, 12, 10, 0, 0)
+            },
+            };
         }
 
         private Routine[] CreateRoutineSeed()
         {
             return new Routine[]
             {
-                new Routine
-                {
-                    Id = 1,
-                    Name = "Full Body Beginner",
-                    TrainerId = 4,         
-                    GymSessionId = 1,      
-
-                },
-        
+            new Routine
+            {
+                Id = 2, // Cambiar para evitar conflicto de IDs
+                Name = "Full Body Beginner",
+                TrainerId = 4
+                // El campo GymSessionId se elimina, ya que la relación es 1:N
+            },
             };
         }
-
-        
-
     }
 }

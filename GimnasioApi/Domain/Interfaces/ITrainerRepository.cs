@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface ITrainerRepository:IRepositoryBase<Trainer>
+    public interface ITrainerRepository : IRepositoryBase<Trainer>
     {
         Task<List<GymSession>> GetMyGymSessionsAsync(int userId);
 
