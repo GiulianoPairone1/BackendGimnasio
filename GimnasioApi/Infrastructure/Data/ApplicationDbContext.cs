@@ -22,7 +22,6 @@ namespace Infrastructure.Data
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ClientGymSession> ClientGymSessions { get; set; }
 
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -45,29 +44,26 @@ namespace Infrastructure.Data
                 .HasDiscriminator<UserType>("UserType")
                 .HasValue<Client>(UserType.Client)
                 .HasValue<Trainer>(UserType.Trainer)
-                .HasValue<Admin>(UserType.Admin);
+                .HasValue<Admin>(UserType.Admin)
+                .HasValue<SuperAdmin>(UserType.SuperAdmin); // Se ha eliminado el punto y coma extra
 
             // Configuración de la relación 1 a muchos entre Routine y GymSession
             modelBuilder.Entity<GymSession>()
                 .HasOne(gs => gs.Routine)
                 .WithMany(r => r.GymSessions)
                 .HasForeignKey(gs => gs.RoutineId)
-                .OnDelete(DeleteBehavior.Restrict); // IMPORTANTE: evita borrado en cascada si se borra una rutina
-
+                .OnDelete(DeleteBehavior.Restrict); // Evita borrado en cascada
 
             modelBuilder.Entity<ClientGymSession>()
                 .HasOne(cgs => cgs.Client)
                 .WithMany(c => c.ClientGymSessions)
                 .HasForeignKey(cgs => cgs.ClientId);
 
-
             modelBuilder.Entity<ClientGymSession>()
                 .HasOne(cgs => cgs.GymSession)
                 .WithMany(gs => gs.ClientGymSessions)
                 .HasForeignKey(cgs => cgs.GymSessionId);
-
-
         }
-
     }
+
 }
