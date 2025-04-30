@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< Updated upstream
   "WorkspaceRootPath": "C:\\Users\\maria\\OneDrive\\Escritorio\\UTN\\Cuatrimestre 4\\Pr\u00E1ctica Profesional\\Proyecto Back\\BackEnd Definitivo\\BackendGimnasio\\GimnasioApi\\",
   "Documents": [
     {
@@ -95,6 +96,10 @@
       "RelativeMoniker": "D:0:0:{F2551115-7BAE-47A2-8DCA-EDAFA05BCB0B}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\data\\efrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
+=======
+  "WorkspaceRootPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\",
+  "Documents": [],
+>>>>>>> Stashed changes
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -102,7 +107,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< Updated upstream
           "SelectedChildIndex": 1,
+=======
+          "SelectedChildIndex": -1,
+>>>>>>> Stashed changes
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,6 +163,7 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+<<<<<<< Updated upstream
             },
             {
               "$type": "Document",
@@ -414,6 +424,8 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T15:36:24.504Z",
               "EditorCaption": ""
+=======
+>>>>>>> Stashed changes
             }
           ]
         }

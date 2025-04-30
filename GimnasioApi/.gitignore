@@ -1,0 +1,21 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.user
+*.suo
+
+# Archivos de build
+bin/
+obj/
+
+# Archivos generados por compilación
+*.dll
+*.exe
+*.pdb
+*.cache
+*.vsidx
+*.v2
+*.log
+
+# Otros temporales
+*.tmp
+*.swp
