@@ -20,12 +20,12 @@ namespace Infrastructure.Data
                 .ToListAsync();
         }
 
-        //public async Task<List<GymSession>> GetMyGymSessionsAsync(int userId)
-        //{
-         //   return await _applicationDbContext.GymSessions
-          //      .Where(session => session.Clients.Any(c => c.Id == userId))
-           //     .Where(session => session.IsAvailable == true)
-            //    .ToListAsync();
-        //}
+        public async Task<List<GymSession>> GetMyGymSessionsAsync(int userId)
+        {
+            return await _applicationDbContext.GymSessions
+                .Where(session => session.IsAvailable)
+                .Where(session => session.ClientGymSessions.Any(cgs => cgs.ClientId == userId))
+                .ToListAsync();
+        }
     }
 }
