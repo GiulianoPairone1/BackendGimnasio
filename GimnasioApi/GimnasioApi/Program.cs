@@ -20,11 +20,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 #region Repositories
+builder.Services.AddScoped<ISuperAdminRepository, SuperAdminRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<ITrainerRepository, TrainerRepository>();
+builder.Services.AddScoped<IClientRepository, ClientRepository>();
 #endregion
 
 #region Services
 builder.Services.AddScoped<ISendEmailService, SendEmailService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ISuperAdminService,SuperAdminService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<ITrainerService,TrainerService>();
+builder.Services.AddScoped<IClientService, ClientService>();
 #endregion
 
 var app = builder.Build();

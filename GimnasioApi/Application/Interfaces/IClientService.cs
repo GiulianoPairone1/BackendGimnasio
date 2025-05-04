@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Application.Models.Dtos;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,9 @@ namespace Application.Interfaces
 {
     public interface IClientService
     {
+        List<ClientDTO> GetAll();
+        ClientDTO GetByGetUserByEmail(string email);
+        ClientDTO Create(ClientDTO clientDto);
+
     }
 }

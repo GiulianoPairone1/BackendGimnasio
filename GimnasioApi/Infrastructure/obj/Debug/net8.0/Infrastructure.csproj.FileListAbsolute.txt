@@ -45,3 +45,14 @@ C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proy
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\Back\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\Back\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 C:\Users\maria\OneDrive\Escritorio\UTN\Cuatrimestre 4\Práctica Profesional\Proyecto Back\Back\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Infrastructure.deps.json
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Application.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Domain.dll
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Application.pdb
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\bin\Debug\net8.0\Domain.pdb
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Users\giuliano\Desktop\ProyectoFinal\BackendGimnasio\GimnasioApi\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll

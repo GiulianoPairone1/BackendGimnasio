@@ -24,7 +24,7 @@ namespace Application.Models.Dtos
         public int Phone { get; set; }
 
         //Metodo para crear
-        public SuperAdmin ToAdmin()
+        public SuperAdmin ToSuperAdmin()
         {
             return new SuperAdmin
             {
@@ -39,7 +39,7 @@ namespace Application.Models.Dtos
         }
 
         //Metodo para actualizar
-        public void UpdateAdmin(SuperAdmin superadmin)
+        public void UpdateSuperAdmin(SuperAdmin superadmin)
         {
             superadmin.Name = this.Name;
             superadmin.Surname = this.Surname;
@@ -47,9 +47,9 @@ namespace Application.Models.Dtos
             superadmin.Password = this.Password;
             superadmin.Phone = this.Phone;
         }
-        public static AdminDTO FromSuperAdmin(SuperAdmin superadmin)
+        public static SuperAdminDTO FromSuperAdmin(SuperAdmin superadmin)
         {
-            return new AdminDTO
+            return new SuperAdminDTO
             {
                 Name = superadmin.Name,
                 Surname = superadmin.Surname,

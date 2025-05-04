@@ -53,7 +53,7 @@ namespace Application.Models.Dtos
             client.Weight = this.Weight;
             client.Height = this.Height;
         }
-        public static ClientDTO FromCliente( Client client )
+        public static ClientDTO FromClient( Client client )
         {
             return new ClientDTO
             {
