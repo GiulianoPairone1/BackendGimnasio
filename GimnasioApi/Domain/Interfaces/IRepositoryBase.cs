@@ -12,5 +12,7 @@ namespace Domain.Interfaces
         T FindByCondition(Func<T, bool> condition);
         T add(T entity);
         T update(T entity);
+
+        T GetById(int id);
     }
 }

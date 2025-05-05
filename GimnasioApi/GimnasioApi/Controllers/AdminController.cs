@@ -18,6 +18,7 @@ namespace GimnasioApi.Controllers
             _adminService = adminService;
         }
 
+
         [HttpGet]
         public IActionResult Get()
         {

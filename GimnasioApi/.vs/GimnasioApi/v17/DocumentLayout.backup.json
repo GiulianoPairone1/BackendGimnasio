@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|c:\\users\\giuliano\\desktop\\proyectofinal\\backendgimnasio\\gimnasioapi\\gimnasioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|solutionrelative:gimnasioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|c:\\users\\giuliano\\desktop\\proyectofinal\\backendgimnasio\\gimnasioapi\\gimnasioapi\\controllers\\routineexerciseservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C02FE947-6C2F-414C-A418-9C318D1CE498}|GimnasioApi\\GimnasioApi.csproj|solutionrelative:gimnasioapi\\controllers\\routineexerciseservicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8623005-E04C-4AFA-BA65-F89F75435BB0}|Application\\Application.csproj|c:\\users\\giuliano\\desktop\\proyectofinal\\backendgimnasio\\gimnasioapi\\application\\services\\routineexerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8623005-E04C-4AFA-BA65-F89F75435BB0}|Application\\Application.csproj|solutionrelative:application\\services\\routineexerciseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,14 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Program.cs",
-              "RelativeDocumentMoniker": "GimnasioApi\\Program.cs",
-              "ToolTip": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Program.cs",
-              "RelativeToolTip": "GimnasioApi\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAA6AAAAAAAAAA==",
+              "Title": "RoutineExerciseServiceController.cs",
+              "DocumentMoniker": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Controllers\\RoutineExerciseServiceController.cs",
+              "RelativeDocumentMoniker": "GimnasioApi\\Controllers\\RoutineExerciseServiceController.cs",
+              "ToolTip": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\GimnasioApi\\Controllers\\RoutineExerciseServiceController.cs*",
+              "RelativeToolTip": "GimnasioApi\\Controllers\\RoutineExerciseServiceController.cs*",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwDQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T16:08:30.165Z",
+              "WhenOpened": "2025-05-05T04:51:21.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RoutineExerciseService.cs",
+              "DocumentMoniker": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Application\\Services\\RoutineExerciseService.cs",
+              "RelativeDocumentMoniker": "Application\\Services\\RoutineExerciseService.cs",
+              "ToolTip": "C:\\Users\\giuliano\\Desktop\\ProyectoFinal\\BackendGimnasio\\GimnasioApi\\Application\\Services\\RoutineExerciseService.cs",
+              "RelativeToolTip": "Application\\Services\\RoutineExerciseService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAiwCUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-05T04:47:18.691Z",
               "EditorCaption": ""
             }
           ]

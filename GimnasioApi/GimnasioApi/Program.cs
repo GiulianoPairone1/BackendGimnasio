@@ -24,6 +24,9 @@ builder.Services.AddScoped<ISuperAdminRepository, SuperAdminRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<ITrainerRepository, TrainerRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
+builder.Services.AddScoped<IRoutineRepository, RoutineRepository>();
+builder.Services.AddScoped<IRoutineExerciseRepository, RoutineExerciseRepository>();
 #endregion
 
 #region Services
@@ -33,6 +36,9 @@ builder.Services.AddScoped<ISuperAdminService,SuperAdminService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<ITrainerService,TrainerService>();
 builder.Services.AddScoped<IClientService, ClientService>();
+builder.Services.AddScoped<IExerciseService, ExerciseService>();
+builder.Services.AddScoped<IRoutineService, RoutineService>();
+builder.Services.AddScoped<IRoutineExerciseService, RoutineExerciseService>();
 #endregion
 
 var app = builder.Build();

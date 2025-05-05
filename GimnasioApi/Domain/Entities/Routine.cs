@@ -19,7 +19,7 @@ namespace Domain.Entities
 
         public ICollection<RoutineExercise> RoutineExercises { get; set; }
 
-        public ICollection<GymSession> GymSessions { get; set; } // Ahora GymSessions en vez de GymSessionRoutine
+        public ICollection<GymSession> GymSessions { get; set; }
 
         public bool IsAvailable { get; set; } = true;
 

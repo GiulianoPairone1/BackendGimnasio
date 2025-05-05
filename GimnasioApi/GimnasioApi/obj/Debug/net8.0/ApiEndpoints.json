@@ -68,6 +68,105 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GimnasioApi.Controllers.ExerciseController",
+    "Method": "Get",
+    "RelativePath": "api/Exercise",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.ExerciseController",
+    "Method": "Add",
+    "RelativePath": "api/Exercise",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "exerciseDTO",
+        "Type": "Application.Models.Dtos.ExerciseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.RoutineController",
+    "Method": "Get",
+    "RelativePath": "api/Routine",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.RoutineController",
+    "Method": "Add",
+    "RelativePath": "api/Routine",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "routineDTO",
+        "Type": "Application.Models.Dtos.RoutineDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.RoutineExerciseServiceController",
+    "Method": "GetAll",
+    "RelativePath": "api/RoutineExerciseService",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.RoutineExerciseServiceController",
+    "Method": "Add",
+    "RelativePath": "api/RoutineExerciseService",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.Models.Dtos.RoutineExerciseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GimnasioApi.Controllers.RoutineExerciseServiceController",
+    "Method": "Update",
+    "RelativePath": "api/RoutineExerciseService/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Application.Models.Dtos.RoutineExerciseDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GimnasioApi.Controllers.SuperAdminController",
     "Method": "Get",
     "RelativePath": "api/SuperAdmin",

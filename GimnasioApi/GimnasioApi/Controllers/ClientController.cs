@@ -23,6 +23,7 @@ namespace GimnasioApi.Controllers
             var clients = _clientService.GetAll();
             return Ok(clients);
         }
+
         //Este lo usa el admin no mas
         [HttpGet("Email")]
         public IActionResult GetUserByEmail([FromQuery]string email)
