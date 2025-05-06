@@ -11,6 +11,11 @@ namespace Application.Interfaces
     public interface IRoutineService
     {
         List<RoutineDTO> GetAll();
-        RoutineDTO Create(RoutineDTO routineDTO);
+        ICollection<RoutineDTO> GetAllRoutinesAvailable();
+        ICollection<RoutineDTO> GetMyRoutinesAvailable(int id);
+        RoutineDTO CreateRoutine(RoutineDTO newRoutineDto);
+        RoutineDTO UpdateRoutine(int id, RoutineDTO updatedData);
+        bool DeleteRoutine(int routineId);
+
     }
 }
