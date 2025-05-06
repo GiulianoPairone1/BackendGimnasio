@@ -1,6 +1,6 @@
 ## Archivos de compilación y publicación
-bin/
-obj/
+**/obj/
+**/bin/
 *.exe
 *.dll
 *.pdb

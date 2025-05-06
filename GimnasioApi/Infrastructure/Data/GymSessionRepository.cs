@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +8,22 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class GymSessionRepository:RepositoryBase<GymSession>, IGymSessionRepository
+    public class GymSessionRepository : EfRepository<GymSession>, IGymSessionRepository
     {
-        private readonly ApplicationDbContext _context;
+        public GymSessionRepository(ApplicationDbContext context) : base(context) { }
 
-        public GymSessionRepository(ApplicationDbContext context):base(context)
+        public List<GymSession> GetGymSessionAvaiable()
         {
-            _context = context;
+            return _applicationDbContext.GymSessions
+                .Where(gymSession => gymSession.IsAvailable == true)
+                .ToList();
+        }
+
+        public List<GymSession> GetMyGymSessions(int trainerId)
+        {
+            return _applicationDbContext.GymSessions
+                .Where(user => user.TrainerId == trainerId && user.IsAvailable)
+                .ToList();
         }
     }
 }
