@@ -1,0 +1,44 @@
+## Archivos de compilación y publicación
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.app
+
+## Configuración de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Archivos de publicación de VS
+.vs/
+.vscode/
+*.dbmdl
+*.bak
+*.log
+
+## Archivos temporales
+*.tmp
+*.temp
+*.log
+*.ncb
+*.cache
+*.zip
+
+## Configuración de Rider (JetBrains)
+.idea/
+
+## Archivos generados por dotnet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Entornos virtuales y secretos
+.env
+secrets.json
+
+## Archivos de configuración de sistema operativo
+.DS_Store
+Thumbs.db
