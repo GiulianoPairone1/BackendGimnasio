@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,22 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class RoutineRepository:RepositoryBase<Routine>, IRoutineRepository
+    public class RoutineRepository: EfRepository<Routine>, IRoutineRepository
     {
-        private readonly ApplicationDbContext _context;
+        public RoutineRepository(ApplicationDbContext context) : base(context) { }
 
-        public RoutineRepository(ApplicationDbContext context):base(context)
+        public List<Routine> GetMyRoutines(int id)
         {
-            _context = context;
+            return _applicationDbContext.Routines
+                .Where(routine=>routine.TrainerId == id && routine.IsAvailable)
+                .ToList();
+        }
+
+        public List<Routine> GetRoutineAvaiable()
+        {
+            return _applicationDbContext.Routines
+                .Where(routine => routine.IsAvailable)
+                .ToList();
         }
     }
 }

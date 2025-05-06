@@ -13,13 +13,7 @@ namespace Infrastructure.Data
     {
         public TrainerRepository(ApplicationDbContext context) : base(context) { }
 
-        public async Task<List<GymSession>> GetMyGymSessionsAsync(int userId)
-        {
-            return await _applicationDbContext.GymSessions
-                .Where(item => item.Trainer.Id == userId)
-                .Where(session => session.IsAvailable == true)
-                .ToListAsync();
-        }
+
 
         public async Task<List<Exercise>> GetExercisesAvaiable()
         {
@@ -28,9 +22,6 @@ namespace Infrastructure.Data
                 .ToListAsync();
         }
 
-        public Task<List<Routine>> GetMyRoutinesAsync()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

@@ -19,6 +19,10 @@ namespace Domain.Entities
 
         public ICollection<RoutineExercise> RoutineExercises { get; set; }
 
+        [ForeignKey("Trainer")]
+        public int TrainerId { get; set; }
+        public Trainer Trainer { get; set; }
+
         public ICollection<GymSession> GymSessions { get; set; }
 
         public bool IsAvailable { get; set; } = true;

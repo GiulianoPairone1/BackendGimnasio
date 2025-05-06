@@ -108,7 +108,7 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TrainerId")
+                    b.Property<int>("TrainerId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -255,9 +255,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Routine", b =>
                 {
-                    b.HasOne("Domain.Entities.Trainer", null)
+                    b.HasOne("Domain.Entities.Trainer", "Trainer")
                         .WithMany("Routines")
-                        .HasForeignKey("TrainerId");
+                        .HasForeignKey("TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trainer");
                 });
 
             modelBuilder.Entity("Domain.Entities.RoutineExercise", b =>
