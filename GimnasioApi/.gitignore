@@ -41,4 +41,4 @@ secrets.json
 
 ## Archivos de configuración de sistema operativo
 .DS_Store
-Thumbs.db
+Thumbs.db.vs/
