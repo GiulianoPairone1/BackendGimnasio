@@ -13,19 +13,6 @@ namespace Infrastructure.Data
     {
         public ClientRepository(ApplicationDbContext context) : base(context) { }
 
-        public async Task<List<GymSession>> GetGymSessionAvaiableAsync()
-        {
-            return await _applicationDbContext.GymSessions
-                .Where(gymSession => gymSession.IsAvailable == true)
-                .ToListAsync();
-        }
 
-        public async Task<List<GymSession>> GetMyGymSessionsAsync(int userId)
-        {
-            return await _applicationDbContext.GymSessions
-                .Where(session => session.IsAvailable)
-                .Where(session => session.ClientGymSessions.Any(cgs => cgs.ClientId == userId))
-                .ToListAsync();
-        }
     }
 }

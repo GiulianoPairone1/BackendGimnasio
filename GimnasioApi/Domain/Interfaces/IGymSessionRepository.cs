@@ -10,5 +10,7 @@ namespace Domain.Interfaces
 {
     public interface IGymSessionRepository: IRepositoryBase<GymSession>
     {
+        List<GymSession> GetGymSessionAvaiable();
+        List<GymSession> GetMyGymSessions(int trainerId);
     }
 }
