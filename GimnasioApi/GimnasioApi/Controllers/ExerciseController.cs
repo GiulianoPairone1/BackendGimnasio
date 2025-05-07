@@ -2,6 +2,7 @@
 using Application.Models.Dtos;
 using Application.Services;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,13 +28,14 @@ namespace GimnasioApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Trainer")]
         public IActionResult Add([FromBody] ExerciseDTO exerciseDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var addedexercise = _exerciseService.Create(exerciseDTO);
+            var addedexercise = _exerciseService.CreateExercise(exerciseDTO);
             return Ok(addedexercise);
         }
 

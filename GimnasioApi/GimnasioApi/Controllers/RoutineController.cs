@@ -33,7 +33,7 @@ namespace GimnasioApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var addedroutine = _routineService.Create(routineDTO);
+            var addedroutine = _routineService.CreateRoutine(routineDTO);
             return Ok(addedroutine);
         }
     }
