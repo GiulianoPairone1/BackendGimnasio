@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class ExerciseRepository:RepositoryBase<Exercise>, IExerciseRepository
+    public class ExerciseRepository:EfRepository<Exercise>, IExerciseRepository
     {
-        private readonly ApplicationDbContext _context;
 
-        public ExerciseRepository(ApplicationDbContext context):base(context) 
+        public ExerciseRepository(ApplicationDbContext context):base(context) { }
+
+        public List<Exercise> GetExercisesAvaiable()
         {
-            _context = context;
+            return _applicationDbContext.Exercises
+                .Where(exercise => exercise.IsAvailable)
+                .ToList();
         }
+
     }
 }

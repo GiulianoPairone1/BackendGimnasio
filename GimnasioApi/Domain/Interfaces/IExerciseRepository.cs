@@ -10,5 +10,6 @@ namespace Domain.Interfaces
 {
     public interface IExerciseRepository: IRepositoryBase<Exercise>
     {
+        List<Exercise> GetExercisesAvaiable();
     }
 }
