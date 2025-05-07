@@ -11,6 +11,11 @@ namespace Application.Interfaces
     public interface IExerciseService
     {
         List<ExerciseDTO> GetAll();
-        ExerciseDTO Create(ExerciseDTO exerciseDTO);
+        List<ExerciseDTO> GetExercisesAvailable();
+
+        ExerciseDTO CreateExercise(ExerciseDTO exerciseDTO);
+
+        ExerciseDTO UpdateExercise(int id, ExerciseDTO updatedData);
+        bool DeleteExercise(int id);
     }
 }

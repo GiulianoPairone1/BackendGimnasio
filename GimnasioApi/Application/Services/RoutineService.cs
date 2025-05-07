@@ -48,12 +48,19 @@ namespace Application.Services
 
         public RoutineDTO CreateRoutine(RoutineDTO newRoutineDto) {
 
+            if (string.IsNullOrWhiteSpace(newRoutineDto.Name))
+                throw new ArgumentException("El nombre de la rutina no puede estar vacío.");
+
             var routine = newRoutineDto.ToRoutine();
             var created = _routineRepository.add(routine);
 
             return RoutineDTO.FromRoutine(created);
         }
         public RoutineDTO UpdateRoutine(int id, RoutineDTO updatedData) {
+
+            if (string.IsNullOrWhiteSpace(updatedData.Name))
+                throw new ArgumentException("El nombre de la rutina no puede estar vacío.");
+
             var existingRoutine = _routineRepository.GetById(id)
                                   ?? throw new KeyNotFoundException("No se encontró la rutina");
 
