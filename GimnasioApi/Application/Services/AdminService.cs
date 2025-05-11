@@ -7,35 +7,130 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities;
+using Domain.Enums;
 
 namespace Application.Services
 {
     public class AdminService : IAdminService
     {
         private readonly IAdminRepository _adminRepository;
+        private readonly IUserRepository _userRepository;   
 
-        public AdminService(IAdminRepository adminRepository) 
+        public AdminService(IAdminRepository adminRepository, IUserRepository userRepository) 
         {
             _adminRepository = adminRepository;
+            _userRepository = userRepository;
         }
 
         public List<AdminDTO> GetAll()
         {
-            return _adminRepository.GetAll()
-                .Select(admin => new AdminDTO
-                {
-                    Name = admin.Name,
-                    Surname = admin.Surname,
-                    Email = admin.Email,
-                })
-                .ToList();
+            var admins = _adminRepository.GetAll();
+            if (admins == null || !admins.Any())
+            {
+                throw new KeyNotFoundException("No se encontraron administradores.");
+            }
+
+            return admins.Select(admin => new AdminDTO
+            {
+                Name = admin.Name,
+                Surname = admin.Surname,
+                Email = admin.Email,
+            })
+            .ToList();
         }
 
-        public AdminDTO Create(AdminDTO clientDto)
+        public AdminDTO Create(AdminDTO adminDto)
         {
-            var admin = clientDto.ToAdmin();
+            if (adminDto == null)
+                throw new ArgumentNullException(nameof(adminDto), "El DTO del administrador no puede ser nulo.");
+
+            if (_adminRepository.GetUserByEmail(adminDto.Email) != null)
+            {
+                throw new InvalidOperationException("Ya existe un administrador con ese correo electrónico.");
+            }
+
+            var admin = adminDto.ToAdmin();
             var addAdmin = _adminRepository.add(admin);
             return AdminDTO.FromAdmin(addAdmin);
+        }
+
+        public UserDTO GetUserByEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(email));
+
+            var user = _adminRepository.GetUserByEmail(email)
+                           ?? throw new KeyNotFoundException("Usuario no encontrado.");
+
+
+            return UserDTO.FromUser(user);
+        }
+
+
+        public List<UserDTO> GetUsersAvailable()
+        {
+            var users = _adminRepository.GetUsersAvailable();
+
+            if (users == null || !users.Any())
+                throw new KeyNotFoundException("No hay usuarios disponibles.");
+
+            return users.Select(UserDTO.FromUser).ToList();
+        }
+
+        public List<UserDTO> GetUsersAvailable<T>() where T : User //Este método es para traer usuarios según el tipo (Client, Trainer, etc)
+        {
+
+            var users = _adminRepository.GetUsersAvailable<T>();
+
+
+            if (users == null || !users.Any())
+                throw new KeyNotFoundException("No hay usuarios disponibles de este tipo.");
+
+
+            return users.Select(UserDTO.FromUser).ToList();
+        }
+
+        public bool UpdateRoleUser(string mail, UserType newRole)
+        {
+            if (string.IsNullOrWhiteSpace(mail))
+                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(mail));
+
+            var user = _adminRepository.GetUserByEmail(mail)
+                              ?? throw new KeyNotFoundException("Usuario no encontrado.");
+
+            if (!user.IsAvailable)
+                throw new InvalidOperationException("No se puede actualizar el rol de un usuario eliminado.");
+
+            if (user.UserType == newRole)
+                throw new InvalidOperationException("El usuario ya tiene el rol especificado.");
+
+            // Validar si el nuevo rol es válido 
+            if (!Enum.IsDefined(typeof(UserType), newRole))
+                throw new ArgumentException("Rol no válido.", nameof(newRole));
+
+            user.UserType = newRole;
+            _userRepository.update(user);
+            return true;
+        }
+
+        public bool DeleteUser(string mail)
+        {
+            if (string.IsNullOrWhiteSpace(mail))
+                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(mail));
+
+            var existingUser = _adminRepository.GetUserByEmail(mail)
+                                            ?? throw new KeyNotFoundException("No se encontró el usuario.");
+
+            if (!existingUser.IsAvailable)
+            {
+                throw new InvalidOperationException("El usuario ya ha sido eliminado.");
+            }
+
+            existingUser.IsAvailable = false;
+            _userRepository.update(existingUser);
+
+            return true;
         }
     }
 }
