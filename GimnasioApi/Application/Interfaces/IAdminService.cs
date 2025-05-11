@@ -13,12 +13,12 @@ namespace Application.Interfaces
     public interface IAdminService
     {
         List<AdminDTO> GetAll();
-        AdminDTO Create(AdminDTO clientDto);
+        AdminDTO Create(AdminDTO adminDTO);
 
-        User GetUserByEmail(string email);
+        UserDTO GetUserByEmail(string email);
 
-        List<User> GetUsersAvailable();
-        List<T> GetUsersAvailable<T>() where T : User;
+        List<UserDTO> GetUsersAvailable();
+        List<UserDTO> GetUsersAvailable<T>() where T : User;
         bool UpdateRoleUser(string mail, UserType newRole);
         bool DeleteUser(string mail);
     }
