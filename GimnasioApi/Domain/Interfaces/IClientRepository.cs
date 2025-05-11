@@ -9,5 +9,10 @@ namespace Domain.Interfaces
 {
     public interface IClientRepository : IRepositoryBase<Client>
     {
+        List<GymSession> GetMyGymSessions(int clientId);
+        void AddClientGymSession(ClientGymSession clientGymSession);
+        ClientGymSession? GetClientGymSession(int clientId, int sessionId);
+        void RemoveClientGymSession(ClientGymSession clientGymSession);
+        public bool EmailExists(string email, int excludedClientId = 0);
     }
 }

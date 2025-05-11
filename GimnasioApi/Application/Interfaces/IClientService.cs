@@ -8,6 +8,6 @@ namespace Application.Interfaces
         List<ClientDTO> GetAll();
         ClientDTO GetByGetUserByEmail(string email);
         ClientDTO Create(ClientDTO clientDto);
-
-    }
+        ClientDTO UpdateProfile(int clientId, ClientDTO clientDto);
+    } 
 }
