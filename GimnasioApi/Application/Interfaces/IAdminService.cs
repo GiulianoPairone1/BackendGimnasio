@@ -1,5 +1,7 @@
 ﻿using Application.Models.Dtos;
-
+using Domain.Entities;
+using Domain.Enums;
+using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +14,12 @@ namespace Application.Interfaces
     {
         List<AdminDTO> GetAll();
         AdminDTO Create(AdminDTO clientDto);
+
+        User GetUserByEmail(string email);
+
+        List<User> GetUsersAvailable();
+        List<T> GetUsersAvailable<T>() where T : User;
+        bool UpdateRoleUser(string mail, UserType newRole);
+        bool DeleteUser(string mail);
     }
 }

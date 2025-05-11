@@ -18,11 +18,20 @@ namespace Infrastructure.Data
             return _applicationDbContext.Users.SingleOrDefault(p => p.Email == email);
         }
 
-        public async Task<List<User>> GetUsersAvaiableAsync()
+        public List<User> GetUsersAvailable()
         {
-            return await _applicationDbContext.Users
-                .Where(u => u.IsAvailable == true)
-                .ToListAsync();
+            return _applicationDbContext.Users
+                           .Where(u => u.IsAvailable)
+                           .ToList();
+        }
+
+        // Obtener usuarios disponibles de un tipo específico (Trainers, Clients, etc)
+        public List<T> GetUsersAvailable<T>() where T : User
+        {
+            return _applicationDbContext.Users
+                           .OfType<T>()
+                           .Where(u => u.IsAvailable)
+                           .ToList();
         }
     }
 }

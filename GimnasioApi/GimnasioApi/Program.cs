@@ -54,6 +54,7 @@ builder.Services.AddSwaggerGen(setupAction =>
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<ISuperAdminRepository, SuperAdminRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITrainerRepository, TrainerRepository>();
 builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IGymSessionRepository, GymSessionRepository>();

@@ -9,8 +9,8 @@ namespace Domain.Interfaces
 {
     public interface IAdminRepository: IRepositoryBase<Admin>
     {
-        User? GetUserByEmail(string? email);
-
-        Task<List<User>> GetUsersAvaiableAsync();
+        User GetUserByEmail(string email);
+        List<User> GetUsersAvailable();
+        List<T> GetUsersAvailable<T>() where T : User;
     }
 }

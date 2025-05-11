@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class UserRepository:RepositoryBase<User>,IUserRepository
+    public class UserRepository:EfRepository<User>,IUserRepository
     {
         private readonly ApplicationDbContext _context;
 
