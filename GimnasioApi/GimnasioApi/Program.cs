@@ -67,6 +67,7 @@ builder.Services.AddScoped<ISendEmailService, SendEmailService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ISuperAdminService,SuperAdminService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IGymSessionService, GymSessionService>();
 builder.Services.AddScoped<ITrainerService,TrainerService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IExerciseService, ExerciseService>();
