@@ -48,13 +48,6 @@ namespace GimnasioApi.Controllers
             return Ok(addedclient);
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var clients = _clientService.GetAll();
-            return Ok(clients);
-        }
-
      
         [HttpGet("{email}")]
         public IActionResult GetByEmail(string email)
@@ -64,14 +57,6 @@ namespace GimnasioApi.Controllers
                 return NotFound("Cliente no encontrado.");
 
             return Ok(client);
-        }
-
-
-        [HttpPost]
-        public IActionResult Create(ClientDTO clientDto)
-        {
-            var client = _clientService.Create(clientDto);
-            return CreatedAtAction(nameof(GetByEmail), new { email = client.Email }, client);
         }
 
 

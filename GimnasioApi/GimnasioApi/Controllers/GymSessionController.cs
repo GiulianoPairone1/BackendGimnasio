@@ -41,7 +41,8 @@ namespace GimnasioApi.Controllers
         public IActionResult Create([FromBody] GymSessionDTO newSessionDto)
         {
             var createdSession = _gymSessionService.CreateGymSession(newSessionDto);
-            return CreatedAtAction(nameof(GetAll), new { id = createdSession.Id }, createdSession);
+            //return CreatedAtAction(nameof(GetAll), new { id = createdSession.Id }, createdSession);
+            return CreatedAtAction(nameof(GetAll),createdSession);
         }
 
         [HttpPut("{id}")]
