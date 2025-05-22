@@ -19,7 +19,6 @@ namespace Application.Interfaces
 
         List<UserDTO> GetUsersAvailable();
         List<UserDTO> GetUsersAvailable<T>() where T : User;
-        bool UpdateRoleUser(string mail, UserType newRole);
         bool DeleteUser(string mail);
     }
 }

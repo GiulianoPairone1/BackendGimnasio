@@ -91,28 +91,7 @@ namespace Application.Services
             return users.Select(UserDTO.FromUser).ToList();
         }
 
-        public bool UpdateRoleUser(string mail, UserType newRole)
-        {
-            if (string.IsNullOrWhiteSpace(mail))
-                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(mail));
-
-            var user = _adminRepository.GetUserByEmail(mail)
-                              ?? throw new KeyNotFoundException("Usuario no encontrado.");
-
-            if (!user.IsAvailable)
-                throw new InvalidOperationException("No se puede actualizar el rol de un usuario eliminado.");
-
-            if (user.UserType == newRole)
-                throw new InvalidOperationException("El usuario ya tiene el rol especificado.");
-
-            // Validar si el nuevo rol es válido 
-            if (!Enum.IsDefined(typeof(UserType), newRole))
-                throw new ArgumentException("Rol no válido.", nameof(newRole));
-
-            user.UserType = newRole;
-            _userRepository.update(user);
-            return true;
-        }
+     
 
         public bool DeleteUser(string mail)
         {

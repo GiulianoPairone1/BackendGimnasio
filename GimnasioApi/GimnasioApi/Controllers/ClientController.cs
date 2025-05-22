@@ -24,18 +24,6 @@ namespace GimnasioApi.Controllers
             return Ok(clients);
         }
 
-        //Este lo usa el admin no mas
-        [HttpGet("Email")]
-        public IActionResult GetUserByEmail([FromQuery]string email)
-        { 
-            var client=_clientService.GetByGetUserByEmail(email);
-
-            if (client == null)
-            {
-                return NotFound("No se encontro el cliente");
-            }
-            return Ok(client);
-        }
 
         [HttpPost]
         public IActionResult Add([FromBody] ClientDTO clientDto)
@@ -49,7 +37,7 @@ namespace GimnasioApi.Controllers
         }
 
      
-        [HttpGet("{email}")]
+        [HttpGet("GetByMail/{email}")]
         public IActionResult GetByEmail(string email)
         {
             var client = _clientService.GetByGetUserByEmail(email);
@@ -60,7 +48,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpGet("{clientId}/sessions")]
+        [HttpGet("GetMyClientSessions/{clientId}")]
         public IActionResult GetMyGymSessions(int clientId)
         {
             var sessions = _clientService.GetMyGymSessions(clientId);
@@ -68,7 +56,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpPost("{clientId}/sessions/{sessionId}")]
+        [HttpPost("RegisterToGymSession/{clientId}/{sessionId}")]
         public IActionResult RegisterToGymSession(int clientId, int sessionId)
         {
             _clientService.RegisterToGymSession(clientId, sessionId);
@@ -76,7 +64,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpDelete("{clientId}/sessions/{sessionId}")]
+        [HttpDelete("UnregisterToGymSession/{clientId}/{sessionId}")]
         public IActionResult UnregisterFromGymSession(int clientId, int sessionId)
         {
             _clientService.UnregisterFromGymSession(clientId, sessionId);
@@ -84,7 +72,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpPut("{clientId}")]
+        [HttpPut("UpdateProfile/{clientId}")]
         public IActionResult UpdateProfile(int clientId, ClientDTO clientDto)
         {
             var updatedClient = _clientService.UpdateProfile(clientId, clientDto);
