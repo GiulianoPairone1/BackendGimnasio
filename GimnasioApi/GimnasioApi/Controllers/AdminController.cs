@@ -59,12 +59,6 @@ namespace GimnasioApi.Controllers
             return Ok(users);
         }
 
-        [HttpPut("UpdateRoleUser")]
-        public IActionResult UpdateRoleUser(string mail, UserType newRole)
-        {
-            _adminService.UpdateRoleUser(mail, newRole);
-            return NoContent();
-        }
 
         [HttpDelete("DeleteUser")]
         public IActionResult DeleteUser(string mail)

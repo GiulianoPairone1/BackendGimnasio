@@ -23,14 +23,14 @@ namespace GimnasioApi.Controllers
             return Ok(sessions);
         }
 
-        [HttpGet("available")]
+        [HttpGet("GetAllGymSessionsAvailable")]
         public IActionResult GetAllAvailable()
         {
             var sessions = _gymSessionService.GetAllAvailable();
             return Ok(sessions);
         }
 
-        [HttpGet("trainer/{trainerId}")]
+        [HttpGet("GetMyTrainerSessions/{trainerId}")]
         public IActionResult GetMySessions(int trainerId)
         {
             var sessions = _gymSessionService.GetMySessions(trainerId);
