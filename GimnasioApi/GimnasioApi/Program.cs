@@ -15,17 +15,6 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:5173") // Dirección del frontend
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
-});
-
 builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContextOptions.UseSqlite(
     builder.Configuration["ConnectionStrings:DBConnectionString"]));
 
@@ -89,6 +78,18 @@ builder.Services.AddScoped<IRoutineExerciseService, RoutineExerciseService>();
 #endregion
 
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+
+
 builder.Services.Configure<AutenticacionServiceOptions>(
     builder.Configuration.GetSection(AutenticacionServiceOptions.AutenticacionService));
 builder.Services.AddScoped<ICustomAuthenticationService, AutenticacionService>();
@@ -111,7 +112,7 @@ builder.Services.AddAuthentication("Bearer")
 
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -121,8 +122,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthentication();
 
 app.UseAuthorization();
 
