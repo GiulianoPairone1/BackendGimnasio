@@ -59,6 +59,7 @@ builder.Services.AddScoped<IClientRepository, ClientRepository>();
 builder.Services.AddScoped<IGymSessionRepository, GymSessionRepository>();
 builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
 builder.Services.AddScoped<IRoutineRepository, RoutineRepository>();
+builder.Services.AddScoped<IClientGymSessionRepository, ClientGymSessionRepository>();
 builder.Services.AddScoped<IRoutineExerciseRepository, RoutineExerciseRepository>();
 #endregion
 
@@ -72,6 +73,7 @@ builder.Services.AddScoped<ITrainerService,TrainerService>();
 builder.Services.AddScoped<IClientService, ClientService>();
 builder.Services.AddScoped<IExerciseService, ExerciseService>();
 builder.Services.AddScoped<IRoutineService, RoutineService>();
+builder.Services.AddScoped<IClientGymSessionService, ClientGymSessionService>();
 builder.Services.AddScoped<IRoutineExerciseService, RoutineExerciseService>();
 #endregion
 

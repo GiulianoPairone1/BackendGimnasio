@@ -12,5 +12,7 @@ namespace Domain.Interfaces
     {
         List<GymSession> GetGymSessionAvaiable();
         List<GymSession> GetMyGymSessions(int trainerId);
+
+        GymSession? GetGymSessionWithClients(int sessionId);
     }
 }
