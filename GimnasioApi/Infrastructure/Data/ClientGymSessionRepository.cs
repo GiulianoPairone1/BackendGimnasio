@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +9,32 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class ClientGymSessionRepository:RepositoryBase<ClientGymSession>,IClientGymSessionRepository
+    public class ClientGymSessionRepository : EfRepository<ClientGymSession> ,IClientGymSessionRepository
     { 
-        private readonly ApplicationDbContext _context;
 
         public ClientGymSessionRepository(ApplicationDbContext context):base(context) 
+        {  }
+
+        public ClientGymSession? GetClientGymSession(int clientId, int sessionId)
         {
-            _context = context;
+            return _applicationDbContext.ClientGymSessions
+                .Include(cgs => cgs.GymSession)
+                .FirstOrDefault(cgs => cgs.ClientId == clientId && cgs.GymSessionId == sessionId);
         }
+
+        public void AddClientGymSession(ClientGymSession clientGymSession)
+        {
+            _applicationDbContext.ClientGymSessions.Add(clientGymSession);
+            _applicationDbContext.SaveChanges();
+        }
+
+        public void RemoveClientGymSession(ClientGymSession clientGymSession)
+        {
+            _applicationDbContext.ClientGymSessions.Remove(clientGymSession);
+            _applicationDbContext.SaveChanges();
+        }
+
+
+
     }
 }

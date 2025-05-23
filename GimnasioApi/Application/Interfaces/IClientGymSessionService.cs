@@ -8,5 +8,8 @@ namespace Application.Interfaces
 {
     public interface IClientGymSessionService
     {
+        bool RegisterToGymSession(int clientId, int sessionId);
+
+        bool UnregisterFromGymSession(int clientId, int sessionId);
     }
 }

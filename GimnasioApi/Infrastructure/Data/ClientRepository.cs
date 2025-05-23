@@ -41,17 +41,6 @@ namespace Infrastructure.Data
                 .FirstOrDefault(cgs => cgs.ClientId == clientId && cgs.GymSessionId == sessionId);
         }
 
-        public void AddClientGymSession(ClientGymSession clientGymSession)
-        {
-            _applicationDbContext.ClientGymSessions.Add(clientGymSession);
-            _applicationDbContext.SaveChanges();
-        }
-
-        public void RemoveClientGymSession(ClientGymSession clientGymSession)
-        {
-            _applicationDbContext.ClientGymSessions.Remove(clientGymSession);
-            _applicationDbContext.SaveChanges();
-        }
 
         public bool EmailExists(string email, int excludedClientId = 0)
         {

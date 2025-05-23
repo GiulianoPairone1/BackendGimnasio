@@ -56,21 +56,6 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpPost("RegisterToGymSession/{clientId}/{sessionId}")]
-        public IActionResult RegisterToGymSession(int clientId, int sessionId)
-        {
-            _clientService.RegisterToGymSession(clientId, sessionId);
-            return Ok("Cliente registrado en la sesión.");
-        }
-
-
-        [HttpDelete("UnregisterToGymSession/{clientId}/{sessionId}")]
-        public IActionResult UnregisterFromGymSession(int clientId, int sessionId)
-        {
-            _clientService.UnregisterFromGymSession(clientId, sessionId);
-            return Ok("Cliente desregistrado de la sesión.");
-        }
-
 
         [HttpPut("UpdateProfile/{clientId}")]
         public IActionResult UpdateProfile(int clientId, ClientDTO clientDto)

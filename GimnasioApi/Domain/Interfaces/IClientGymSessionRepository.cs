@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IClientGymSessionRepository:IRepositoryBase<ClientGymSession>
+    public interface IClientGymSessionRepository : IRepositoryBase<ClientGymSession>
     {
+        ClientGymSession? GetClientGymSession(int clientId, int sessionId);
+        void AddClientGymSession(ClientGymSession clientGymSession);
+        void RemoveClientGymSession(ClientGymSession clientGymSession);
+
     }
 }

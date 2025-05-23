@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,14 @@ namespace Infrastructure.Data
             return _applicationDbContext.GymSessions
                 .Where(user => user.TrainerId == trainerId && user.IsAvailable)
                 .ToList();
+        }
+
+        public GymSession? GetGymSessionWithClients(int sessionId)
+        {
+            return _applicationDbContext.GymSessions
+                .Include(gs => gs.ClientGymSessions)
+                .ThenInclude(cgs => cgs.Client)
+                .FirstOrDefault(gs => gs.Id == sessionId);
         }
     }
 }
