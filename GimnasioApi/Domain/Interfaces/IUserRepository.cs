@@ -11,6 +11,8 @@ namespace Domain.Interfaces
     public interface IUserRepository : IRepositoryBase<User>
     {
         User GetUserByEmail(string email);
-
+        Task<User?> GetByEmailAsync(string email);
+        Task<User?> GetByResetTokenAsync(string token);
+        Task UpdateAsync(User user);
     }
 }

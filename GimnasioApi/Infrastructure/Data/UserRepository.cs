@@ -1,6 +1,8 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +24,21 @@ namespace Infrastructure.Data
         {
             return _context.Users.FirstOrDefault(u => u.Email == email);
         }
+
+        //Para recuperar contraseña
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+        public async Task<User?> GetByResetTokenAsync(string token)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.PasswordResetToken == token);
+        }
+        public async Task UpdateAsync(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

@@ -28,5 +28,8 @@ namespace Domain.Entities
         public int Phone { get; set; } 
         public bool IsAvailable { get; set; } = true;
 
+        //Recuperar contraseña
+        public string? PasswordResetToken { get; set; }
+        public DateTime? TokenExpiration { get; set; }
     }
 }

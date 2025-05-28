@@ -75,6 +75,7 @@ builder.Services.AddScoped<IExerciseService, ExerciseService>();
 builder.Services.AddScoped<IRoutineService, RoutineService>();
 builder.Services.AddScoped<IClientGymSessionService, ClientGymSessionService>();
 builder.Services.AddScoped<IRoutineExerciseService, RoutineExerciseService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 #endregion
 
 
