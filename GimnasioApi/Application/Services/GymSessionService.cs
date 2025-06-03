@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Dtos;
+using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -110,6 +111,17 @@ namespace Application.Services
             _gymSessionRepository.update(existingSession);
 
             return true;
+        }
+
+        public async Task<IEnumerable<GymSession>> GetSessionsByDateAsync(DateTime date)
+        {
+            if (date == default)
+                throw new ArgumentException("La fecha es inválida.");
+
+            if (date.Date < DateTime.Today)
+                throw new ArgumentException("No se pueden consultar sesiones de fechas pasadas.");
+
+            return await _gymSessionRepository.GetSessionsByDateAsync(date);
         }
     }
 }

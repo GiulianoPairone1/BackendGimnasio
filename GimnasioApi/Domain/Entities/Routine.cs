@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Domain.Entities
 {
@@ -19,10 +20,13 @@ namespace Domain.Entities
 
         public ICollection<RoutineExercise> RoutineExercises { get; set; }
 
-        [ForeignKey("Trainer")]
-        public int TrainerId { get; set; }
-        public Trainer Trainer { get; set; }
+        // [ForeignKey("Trainer")]
+        // public int TrainerId { get; set; }
 
+        // [JsonIgnore]
+        // public Trainer Trainer { get; set; }
+
+        [JsonIgnore]
         public ICollection<GymSession> GymSessions { get; set; }
 
         public bool IsAvailable { get; set; } = true;

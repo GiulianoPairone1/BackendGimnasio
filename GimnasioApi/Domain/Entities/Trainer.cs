@@ -15,7 +15,7 @@ namespace Domain.Entities
         {
             UserType = UserType.Trainer;
             GymSessions = new List<GymSession>();
-            Routines = new List<Routine>();
+            // Routines = new List<Routine>();
         }
 
         [Required]
@@ -25,7 +25,7 @@ namespace Domain.Entities
         public List<GymSession> GymSessions { get; set; }
 
 
-        public ICollection<Routine> Routines { get; set; }
+        // public ICollection<Routine> Routines { get; set; }
 
     }
 }

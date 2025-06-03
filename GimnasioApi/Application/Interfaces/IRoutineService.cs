@@ -12,7 +12,7 @@ namespace Application.Interfaces
     {
         List<RoutineDTO> GetAll();
         ICollection<RoutineDTO> GetAllRoutinesAvailable();
-        ICollection<RoutineDTO> GetMyRoutinesAvailable(int id);
+        //ICollection<RoutineDTO> GetMyRoutinesAvailable(int id);
         RoutineDTO CreateRoutine(RoutineDTO newRoutineDto);
         RoutineDTO UpdateRoutine(int id, RoutineDTO updatedData);
         bool DeleteRoutine(int routineId);

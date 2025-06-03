@@ -13,7 +13,7 @@ namespace Application.Models.Dtos
     {
         [Required]
         public string Name { get; set; }
-        public int TrainerId { get; set; }
+        // public int TrainerId { get; set; }
         public bool IsAvailable { get; set; }
 
         // Método para crear Routine
@@ -22,7 +22,7 @@ namespace Application.Models.Dtos
             return new Routine
             {
                 Name = this.Name,
-                TrainerId= this.TrainerId,
+                // TrainerId= this.TrainerId,
                 IsAvailable = this.IsAvailable,
             };
         }
@@ -31,7 +31,7 @@ namespace Application.Models.Dtos
         public void UpdateRoutine(Routine routine)
         {
             routine.Name = this.Name;
-            routine.TrainerId = this.TrainerId;
+            // routine.TrainerId = this.TrainerId;
             routine.IsAvailable = this.IsAvailable;
         }
 
@@ -40,7 +40,7 @@ namespace Application.Models.Dtos
             return new RoutineDTO
             {
                 Name = routine.Name,
-                TrainerId= routine.TrainerId,
+                //TrainerId= routine.TrainerId,
                 IsAvailable = routine.IsAvailable,
             };
         }

@@ -10,7 +10,7 @@ namespace Domain.Interfaces
 {
     public interface IRoutineRepository:IRepositoryBase<Routine>
     {
-        List<Routine> GetMyRoutines(int id);
+        // List<Routine> GetMyRoutines(int id);
 
         List<Routine> GetRoutineAvaiable();
     }

@@ -58,5 +58,12 @@ namespace GimnasioApi.Controllers
             _gymSessionService.DeleteGymSession(sessionId);
             return NoContent();
         }
+
+        [HttpGet("byDate")]
+        public async Task<IActionResult> GetSessionsByDate([FromQuery] DateTime date)
+        {
+            var sessions = await _gymSessionService.GetSessionsByDateAsync(date);
+            return Ok(sessions);
+        }
     }
 }

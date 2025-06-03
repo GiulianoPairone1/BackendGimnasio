@@ -13,12 +13,12 @@ namespace Infrastructure.Data
     {
         public RoutineRepository(ApplicationDbContext context) : base(context) { }
 
-        public List<Routine> GetMyRoutines(int id)
-        {
-            return _applicationDbContext.Routines
-                .Where(routine=>routine.TrainerId == id && routine.IsAvailable)
-                .ToList();
-        }
+        // public List<Routine> GetMyRoutines(int id)
+        // {
+        //    return _applicationDbContext.Routines
+        //        .Where(routine=>routine.TrainerId == id && routine.IsAvailable)
+        //        .ToList();
+        //}
 
         public List<Routine> GetRoutineAvaiable()
         {

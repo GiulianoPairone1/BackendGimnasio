@@ -34,5 +34,21 @@ namespace Infrastructure.Data
                 .ThenInclude(cgs => cgs.Client)
                 .FirstOrDefault(gs => gs.Id == sessionId);
         }
+
+
+        public async Task<IEnumerable<GymSession>> GetSessionsByDateAsync(DateTime date)
+        {
+            return await _applicationDbContext.GymSessions
+                .Include(g => g.Trainer)
+                .Include(g => g.Routine)
+                .Include(g => g.ClientGymSessions)
+                .ThenInclude(cgs => cgs.Client)
+                .Where(g =>
+                g.SessionDate >= date.Date &&
+                g.SessionDate < date.Date.AddDays(1) &&
+                g.IsAvailable == true)
+                .ToListAsync();
+        }
+
     }
 }

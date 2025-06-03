@@ -44,7 +44,7 @@ namespace Application.Models.Dtos
                     UserType = this.UserType,
                     TrainerSpeciality = this.TrainerSpeciality,
                     GymSessions = new List<GymSession>(),
-                    Routines = new List<Routine>(),
+                    //Routines = new List<Routine>(),
                     IsAvailable = true
                 },
                 UserType.Client => new Client

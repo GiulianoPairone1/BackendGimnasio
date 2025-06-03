@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250603114519_AddPasswordResetTokenToUser")]
+    partial class AddPasswordResetTokenToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.15");
@@ -108,7 +111,12 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("TrainerId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TrainerId");
 
                     b.ToTable("Routines");
                 });
@@ -254,6 +262,17 @@ namespace Infrastructure.Migrations
                     b.Navigation("Trainer");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Routine", b =>
+                {
+                    b.HasOne("Domain.Entities.Trainer", "Trainer")
+                        .WithMany("Routines")
+                        .HasForeignKey("TrainerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trainer");
+                });
+
             modelBuilder.Entity("Domain.Entities.RoutineExercise", b =>
                 {
                     b.HasOne("Domain.Entities.Exercise", "Exercise")
@@ -298,6 +317,8 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Trainer", b =>
                 {
                     b.Navigation("GymSessions");
+
+                    b.Navigation("Routines");
                 });
 #pragma warning restore 612, 618
         }

@@ -14,5 +14,7 @@ namespace Domain.Interfaces
         List<GymSession> GetMyGymSessions(int trainerId);
 
         GymSession? GetGymSessionWithClients(int sessionId);
+
+        Task<IEnumerable<GymSession>> GetSessionsByDateAsync(DateTime date);
     }
 }

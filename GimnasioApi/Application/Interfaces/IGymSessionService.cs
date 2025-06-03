@@ -1,4 +1,5 @@
 ﻿using Application.Models.Dtos;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace Application.Interfaces
         GymSessionDTO CreateGymSession(GymSessionDTO newSessionDto);
         GymSessionDTO UpdateGymSession(int id, GymSessionDTO updatedData);
         bool DeleteGymSession(int sessionId);
+
+        Task<IEnumerable<GymSession>> GetSessionsByDateAsync(DateTime date);
 
     }
 }

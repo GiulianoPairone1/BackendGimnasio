@@ -39,12 +39,12 @@ namespace Application.Services
         }
 
 
-        public ICollection<RoutineDTO> GetMyRoutinesAvailable(int id) {
-            var routines = _routineRepository.GetMyRoutines(id)
-                           ?? throw new KeyNotFoundException("No se encontraron rutinas de este entrenador");
-
-            return routines.Select(RoutineDTO.FromRoutine).ToList();
-        }
+        //public ICollection<RoutineDTO> GetMyRoutinesAvailable(int id) {
+        //    var routines = _routineRepository.GetMyRoutines(id)
+        //                   ?? throw new KeyNotFoundException("No se encontraron rutinas de este entrenador");
+        //
+        //    return routines.Select(RoutineDTO.FromRoutine).ToList();
+        //}
 
         public RoutineDTO CreateRoutine(RoutineDTO newRoutineDto) {
 
