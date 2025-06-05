@@ -15,7 +15,10 @@ namespace Application.Models.Dtos
         public DateTime SessionDate { get; set; }
         [Required]
         public int TrainerId { get; set; }
+
+        public int? Id { get; set; }
         public int? RoutineId { get; set; }
+        public string? RoutineName { get; set; }
         public bool IsAvailable { get; set; }
 
         // Método para crear GymSession
@@ -43,11 +46,14 @@ namespace Application.Models.Dtos
         {
             return new GymSessionDTO
             {
+                Id = gymSession.Id,
                 SessionDate = gymSession.SessionDate,
                 TrainerId = gymSession.TrainerId,
+                RoutineName = gymSession.Routine.Name,
                 RoutineId = gymSession.RoutineId,
                 IsAvailable = gymSession.IsAvailable,
             };
+            
         }
     }
 
