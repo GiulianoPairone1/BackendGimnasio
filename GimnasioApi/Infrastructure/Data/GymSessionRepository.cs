@@ -13,16 +13,25 @@ namespace Infrastructure.Data
     {
         public GymSessionRepository(ApplicationDbContext context) : base(context) { }
 
+        public List<GymSession> GetAll()
+        {
+            return _applicationDbContext.GymSessions
+                .Include((x) => x.Routine)
+                .ToList();
+        }
+
         public List<GymSession> GetGymSessionAvaiable()
         {
             return _applicationDbContext.GymSessions
                 .Where(gymSession => gymSession.IsAvailable == true)
+                    .Include((x)=>x.Routine)
                 .ToList();
         }
 
         public List<GymSession> GetMyGymSessions(int trainerId)
         {
             return _applicationDbContext.GymSessions
+                .Include((x) => x.Routine)
                 .Where(user => user.TrainerId == trainerId && user.IsAvailable)
                 .ToList();
         }
@@ -32,6 +41,7 @@ namespace Infrastructure.Data
             return _applicationDbContext.GymSessions
                 .Include(gs => gs.ClientGymSessions)
                 .ThenInclude(cgs => cgs.Client)
+                .Include((x) => x.Routine)
                 .FirstOrDefault(gs => gs.Id == sessionId);
         }
 
