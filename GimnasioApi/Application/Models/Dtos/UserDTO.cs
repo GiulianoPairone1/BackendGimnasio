@@ -22,7 +22,8 @@ namespace Application.Models.Dtos
         [Required]
         public string Password { get; set; }
         [Required]
-        public int Phone { get; set; }
+        [Phone]
+        public string Phone { get; set; }
 
         // Propiedades específicas para los diferentes tipos de usuarios
         public Speciality? TrainerSpeciality { get; set; } // Solo para Trainer

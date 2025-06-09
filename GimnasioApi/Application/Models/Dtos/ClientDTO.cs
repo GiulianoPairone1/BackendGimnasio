@@ -20,8 +20,13 @@ namespace Application.Models.Dtos
         [Required]
         public string Password { get; set; }
         [Required]
-        public int Phone {  get; set; }
+        [Phone]
+        public string Phone {  get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "El peso debe ser un valor positivo.")]
         public double Weight { get; set; }
+
+        [Range(0, double.MaxValue, ErrorMessage = "La altura debe ser un valor positivo.")]
         public double Height { get; set; }
 
 

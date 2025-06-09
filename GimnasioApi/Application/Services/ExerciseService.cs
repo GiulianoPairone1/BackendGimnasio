@@ -15,14 +15,16 @@ namespace Application.Services
         }
 
         public List<ExerciseDTO> GetAll()
-        { 
+        {
             return _excerciseRepository.GetAll()
+                .Where(e => e.IsAvailable)
                 .Select(exercise => new ExerciseDTO
                 {
                     Name = exercise.Name,
                     Sets = exercise.Sets,
                     Reps = exercise.Reps,
                     RestTime = exercise.RestTime,
+                    IsAvailable = exercise.IsAvailable
                 })
                 .ToList();
         }

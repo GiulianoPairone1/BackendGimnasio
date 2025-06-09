@@ -74,7 +74,9 @@ namespace Application.Services
                 throw new InvalidOperationException("El cliente ha sido dado de baja y no puede ser actualizado.");
             if (_clientRepository.EmailExists(clientDto.Email, clientId))
                 throw new InvalidOperationException("El correo ingresado ya está en uso.");
-            if (clientDto.Phone <= 0)
+            if (string.IsNullOrWhiteSpace(clientDto.Phone))
+                throw new InvalidOperationException("El número de teléfono no puede estar vacío.");
+            if (!System.Text.RegularExpressions.Regex.IsMatch(clientDto.Phone, @"^\+?\d{7,15}$"))
                 throw new InvalidOperationException("El número de teléfono ingresado no es válido.");
             if (clientDto.Weight < 0 || clientDto.Height < 0)
                 throw new InvalidOperationException("El peso y la altura deben ser valores positivos.");

@@ -35,5 +35,6 @@ namespace GimnasioApi.Controllers
             var addedtrainer = _trainerService.Create(trainerDto);
             return Ok(addedtrainer);
         }
+
     }
 }

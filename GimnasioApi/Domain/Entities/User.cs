@@ -21,11 +21,13 @@ namespace Domain.Entities
         [Required]
         public UserType UserType { get; set; }
         [Required]
+        [MaxLength(150)]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
         [Required]
-        public int Phone { get; set; } 
+        [Phone]
+        public string Phone { get; set; } 
         public bool IsAvailable { get; set; } = true;
 
         //Recuperar contraseña

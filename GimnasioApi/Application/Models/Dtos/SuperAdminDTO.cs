@@ -21,7 +21,8 @@ namespace Application.Models.Dtos
         [Required]
         public string Password { get; set; }
         [Required]
-        public int Phone { get; set; }
+        [Phone]
+        public string Phone { get; set; }
 
         //Metodo para crear
         public SuperAdmin ToSuperAdmin()
