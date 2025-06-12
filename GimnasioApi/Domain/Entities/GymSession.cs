@@ -32,7 +32,9 @@ namespace Domain.Entities
         public int? RoutineId { get; set; } // Puede ser nullable si querés permitir sesiones sin rutina asignada
         public Routine Routine { get; set; }
 
-        public bool IsAvailable { get; set; } = true;
+        public bool IsCancelled { get; set; } = false; 
+
+        public bool IsAvailable => !IsCancelled && SessionDate > DateTime.Now;
 
         // Relación muchos a muchos
         public ICollection<ClientGymSession> ClientGymSessions { get; set; }

@@ -11,17 +11,17 @@ namespace Infrastructure.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "PasswordResetToken",
-                table: "Users",
-                type: "TEXT",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "PasswordResetToken",
+            //    table: "Users",
+            //    type: "TEXT",
+            //    nullable: true);
 
-            migrationBuilder.AddColumn<DateTime>(
-                name: "TokenExpiration",
-                table: "Users",
-                type: "TEXT",
-                nullable: true);
+            //migrationBuilder.AddColumn<DateTime>(
+            //    name: "TokenExpiration",
+            //    table: "Users",
+            //    type: "TEXT",
+            //    nullable: true);
         }
 
         /// <inheritdoc />

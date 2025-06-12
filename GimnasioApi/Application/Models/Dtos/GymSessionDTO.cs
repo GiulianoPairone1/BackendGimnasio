@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,10 +16,10 @@ namespace Application.Models.Dtos
         [Required]
         public int TrainerId { get; set; }
 
-        public int? Id { get; set; }
         public int? RoutineId { get; set; }
         public string? RoutineName { get; set; }
-        public bool IsAvailable { get; set; }
+        public SessionType SessionType { get; set; }
+        public bool IsCancelled { get; set; }
 
         // Método para crear GymSession
         public GymSession ToGymSession()
@@ -29,7 +29,7 @@ namespace Application.Models.Dtos
                 SessionDate = this.SessionDate,
                 TrainerId = this.TrainerId,
                 RoutineId = this.RoutineId,
-                IsAvailable = this.IsAvailable,
+                SessionType = this.SessionType,
             };
         }
 
@@ -39,19 +39,18 @@ namespace Application.Models.Dtos
             gymSession.SessionDate = this.SessionDate;
             gymSession.TrainerId = this.TrainerId;
             gymSession.RoutineId = this.RoutineId;
-            gymSession.IsAvailable = this.IsAvailable;
+            gymSession.SessionType = this.SessionType;
         }
 
         public static GymSessionDTO FromGymSession(GymSession gymSession)
         {
             return new GymSessionDTO
             {
-                Id = gymSession.Id,
                 SessionDate = gymSession.SessionDate,
                 TrainerId = gymSession.TrainerId,
                 RoutineName = gymSession.Routine.Name,
                 RoutineId = gymSession.RoutineId,
-                IsAvailable = gymSession.IsAvailable,
+                SessionType = gymSession.SessionType,
             };
             
         }

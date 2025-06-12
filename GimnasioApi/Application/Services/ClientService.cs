@@ -58,7 +58,6 @@ namespace Application.Services
                 TrainerId = gs.Id,
                 RoutineId = gs.RoutineId,
                 SessionDate = gs.SessionDate,
-                IsAvailable = gs.IsAvailable
             }).ToList();
         }
 

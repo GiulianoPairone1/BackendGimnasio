@@ -16,6 +16,9 @@ namespace Infrastructure.Data
         public List<GymSession> GetAll()
         {
             return _applicationDbContext.GymSessions
+                .Include(g => g.Trainer)
+                .Include(g => g.Routine)
+                .Include(g => g.ClientGymSessions)
                 .Include((x) => x.Routine)
                 .ToList();
         }
@@ -23,16 +26,23 @@ namespace Infrastructure.Data
         public List<GymSession> GetGymSessionAvaiable()
         {
             return _applicationDbContext.GymSessions
-                .Where(gymSession => gymSession.IsAvailable == true)
-                    .Include((x)=>x.Routine)
+                .Include(g => g.Trainer)
+                .Include(g => g.Routine)
+                .Include(g => g.ClientGymSessions)
+                .Include((x) => x.Routine)
+                .Where(g => !g.IsCancelled && g.SessionDate > DateTime.Now)
                 .ToList();
         }
 
         public List<GymSession> GetMyGymSessions(int trainerId)
         {
             return _applicationDbContext.GymSessions
+                .Include(g => g.Trainer)
+                .Include(g => g.Routine)
+                .Include(g => g.ClientGymSessions)
+                .ThenInclude(cgs => cgs.Client)
                 .Include((x) => x.Routine)
-                .Where(user => user.TrainerId == trainerId && user.IsAvailable)
+                .Where(g => g.TrainerId == trainerId && !g.IsCancelled && g.SessionDate > DateTime.Now)
                 .ToList();
         }
 
@@ -42,6 +52,7 @@ namespace Infrastructure.Data
                 .Include(gs => gs.ClientGymSessions)
                 .ThenInclude(cgs => cgs.Client)
                 .Include((x) => x.Routine)
+                .Where(g => !g.IsCancelled && g.SessionDate > DateTime.Now)
                 .FirstOrDefault(gs => gs.Id == sessionId);
         }
 
@@ -56,7 +67,7 @@ namespace Infrastructure.Data
                 .Where(g =>
                 g.SessionDate >= date.Date &&
                 g.SessionDate < date.Date.AddDays(1) &&
-                g.IsAvailable == true)
+                (!g.IsCancelled && g.SessionDate > DateTime.Now))
                 .ToListAsync();
         }
 

@@ -107,7 +107,7 @@ namespace Application.Services
             }
 
 
-            existingSession.IsAvailable = false;
+            existingSession.IsCancelled = true;
             _gymSessionRepository.update(existingSession);
 
             return true;
