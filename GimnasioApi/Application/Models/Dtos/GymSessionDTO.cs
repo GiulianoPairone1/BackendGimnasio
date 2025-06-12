@@ -18,6 +18,7 @@ namespace Application.Models.Dtos
 
         public int? RoutineId { get; set; }
         public string? RoutineName { get; set; }
+        public int Id { get; set; }
         public SessionType SessionType { get; set; }
         public bool IsCancelled { get; set; }
 
@@ -46,6 +47,7 @@ namespace Application.Models.Dtos
         {
             return new GymSessionDTO
             {
+                Id = gymSession.Id,
                 SessionDate = gymSession.SessionDate,
                 TrainerId = gymSession.TrainerId,
                 RoutineName = gymSession.Routine.Name,
