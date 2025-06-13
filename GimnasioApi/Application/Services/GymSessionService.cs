@@ -35,13 +35,14 @@ namespace Application.Services
             return gymSessions.Select(GymSessionDTO.FromGymSession).ToList();
         }
 
-        public ICollection<GymSessionDTO> GetMySessions(int trainerId)
+        public ICollection<GymSessionWithClientsDTO> GetMySessions(int trainerId)
         {
 
             var gymSessions = _gymSessionRepository.GetMyGymSessions(trainerId)
                                ?? throw new KeyNotFoundException("No se encontraron sesiones para este entrenador");
+            
 
-            return gymSessions.Select(GymSessionDTO.FromGymSession).ToList();
+            return gymSessions.Select(GymSessionWithClientsDTO.FromGymSession).ToList();
         }
 
         public GymSessionDTO CreateGymSession(GymSessionDTO newSessionDto)

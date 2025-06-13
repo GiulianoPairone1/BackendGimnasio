@@ -12,7 +12,7 @@ namespace Application.Interfaces
     {
         ICollection<GymSessionDTO> GetAllGymSessions();
         ICollection<GymSessionDTO> GetAllAvailable();
-        ICollection<GymSessionDTO> GetMySessions(int trainerId);
+        ICollection<GymSessionWithClientsDTO> GetMySessions(int trainerId);
         GymSessionDTO CreateGymSession(GymSessionDTO newSessionDto);
         GymSessionDTO UpdateGymSession(int id, GymSessionDTO updatedData);
         bool DeleteGymSession(int sessionId);

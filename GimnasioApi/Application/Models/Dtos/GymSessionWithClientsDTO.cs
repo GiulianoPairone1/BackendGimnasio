@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Models.Dtos
 {
-    public class GymSessionDTO
+    public class GymSessionWithClientsDTO
     {
         [Required]
         public DateTime SessionDate { get; set; }
@@ -21,32 +21,12 @@ namespace Application.Models.Dtos
         public int Id { get; set; }
         public SessionType SessionType { get; set; }
         public bool IsCancelled { get; set; }
+        public List<ClientInfoDTO> Clients { get; set; }
         public int ReservedPlaces { get; set; }
 
-        // Método para crear GymSession
-        public GymSession ToGymSession()
+        public static GymSessionWithClientsDTO FromGymSession(GymSession gymSession)
         {
-            return new GymSession
-            {
-                SessionDate = this.SessionDate,
-                TrainerId = this.TrainerId,
-                RoutineId = this.RoutineId,
-                SessionType = this.SessionType,
-            };
-        }
-
-        // Método para actualizar GymSession
-        public void UpdateGymSession(GymSession gymSession)
-        {
-            gymSession.SessionDate = this.SessionDate;
-            gymSession.TrainerId = this.TrainerId;
-            gymSession.RoutineId = this.RoutineId;
-            gymSession.SessionType = this.SessionType;
-        }
-
-        public static GymSessionDTO FromGymSession(GymSession gymSession)
-        {
-            return new GymSessionDTO
+            return new GymSessionWithClientsDTO
             {
                 Id = gymSession.Id,
                 SessionDate = gymSession.SessionDate,
@@ -54,10 +34,15 @@ namespace Application.Models.Dtos
                 RoutineName = gymSession.Routine.Name,
                 RoutineId = gymSession.RoutineId,
                 SessionType = gymSession.SessionType,
+                Clients = gymSession.ClientGymSessions
+                                           .Select(cgs => new ClientInfoDTO
+                                           {
+                                               Name = cgs.Client?.Name,
+                                               Email = cgs.Client?.Email
+                                           })
+                                           .ToList(),
                 ReservedPlaces = gymSession.ClientGymSessions.Count()
             };
-            
         }
     }
-
 }
