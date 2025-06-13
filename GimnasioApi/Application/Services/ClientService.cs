@@ -86,5 +86,13 @@ namespace Application.Services
             return ClientDTO.FromClient(client);
         }
 
+        public ClientDTO GetClientById(int clientId) {
+            var client = _clientRepository.GetById(clientId)
+                            ?? throw new KeyNotFoundException("Cliente no encontrado."); 
+
+            return ClientDTO.FromClient(client);
+        }
+
+
     }
 }

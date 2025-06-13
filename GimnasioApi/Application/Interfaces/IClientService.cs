@@ -11,6 +11,7 @@ namespace Application.Interfaces
         List<GymSessionDTO> GetMyGymSessions(int clientId);
 
         ClientDTO UpdateProfile(int clientId, ClientDTO clientDto);
+        ClientDTO GetClientById(int clientId);
 
     } 
 }

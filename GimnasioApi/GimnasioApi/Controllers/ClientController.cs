@@ -63,5 +63,16 @@ namespace GimnasioApi.Controllers
             var updatedClient = _clientService.UpdateProfile(clientId, clientDto);
             return Ok(updatedClient);
         }
+
+        [HttpGet("ById/{clientId}")]
+        public IActionResult GetClientById(int clientId)
+        {
+            var client = _clientService.GetClientById(clientId);
+            if (client == null)
+                return NotFound("Cliente no encontrado.");
+
+            return Ok(client);
+
+        }
     }
 }
