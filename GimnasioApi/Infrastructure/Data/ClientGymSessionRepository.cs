@@ -34,7 +34,12 @@ namespace Infrastructure.Data
             _applicationDbContext.SaveChanges();
         }
 
-
+        public bool ClientHasClassThatDay(int clientId, DateTime date)
+        {
+            return _applicationDbContext.ClientGymSessions
+                .Include(r => r.GymSession)
+                .Any(r => r.ClientId == clientId && r.GymSession.SessionDate.Date == date.Date);
+        }
 
     }
 }

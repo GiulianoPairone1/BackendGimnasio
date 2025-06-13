@@ -14,5 +14,7 @@ namespace Domain.Interfaces
         void AddClientGymSession(ClientGymSession clientGymSession);
         void RemoveClientGymSession(ClientGymSession clientGymSession);
 
+        bool ClientHasClassThatDay(int clientId, DateTime date);
+
     }
 }
