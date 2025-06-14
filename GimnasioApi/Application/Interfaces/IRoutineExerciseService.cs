@@ -15,5 +15,6 @@ namespace Application.Interfaces
         List<RoutineExercise> GetAll();
         void Add(RoutineExerciseDTO dto);
         void Update(int routineExerciseId, RoutineExerciseDTO dto);
+        bool DeleteRoutineExercise(int routineId, int exerciseId);
     }
 }

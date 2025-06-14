@@ -36,7 +36,7 @@ namespace Infrastructure.Data
             _context.SaveChanges();
             return entity;
         }
-        public T GetById(int id)
+        public T GetById(int? id)
         {
             return _context.Set<T>().Find(id); // Busca por Id
         }

@@ -13,7 +13,7 @@ namespace Domain.Interfaces
         T add(T entity);
         T update(T entity);
 
-        T GetById(int id);
+        T GetById(int? id);
 
         T delete(T entity);
     }

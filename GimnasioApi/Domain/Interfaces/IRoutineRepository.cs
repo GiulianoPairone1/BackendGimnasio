@@ -13,5 +13,7 @@ namespace Domain.Interfaces
         // List<Routine> GetMyRoutines(int id);
 
         List<Routine> GetRoutineAvaiable();
+
+        List<Routine> GetRoutinesByTrainer(int trainerId);
     }
 }

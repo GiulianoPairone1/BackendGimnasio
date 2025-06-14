@@ -91,7 +91,7 @@ namespace Application.Services
 
 
             existingExercise.IsAvailable = false;
-            _excerciseRepository.update(existingExercise);
+            _excerciseRepository.delete(existingExercise);
 
             return true;
         }

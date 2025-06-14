@@ -69,7 +69,7 @@ namespace Application.Services
 
             return RoutineDTO.FromRoutine(existingRoutine);
         }
-        public bool DeleteRoutine(int routineId) {
+        public bool DeleteRoutine(int? routineId) {
             var existingRoutine = _routineRepository.GetById(routineId)
                                    ?? throw new KeyNotFoundException("No se encontró la rutina");
 
@@ -85,5 +85,13 @@ namespace Application.Services
 
             return true;
         }
+
+        public List<RoutineWithExercisesDTO> GetRoutinesByTrainerId(int trainerId)
+        {
+            var routines = _routineRepository.GetRoutinesByTrainer(trainerId);
+            return routines.Select(r => RoutineWithExercisesDTO.FromRoutine(r)).ToList();
+        }
+
+
     }
 }
