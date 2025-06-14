@@ -54,13 +54,35 @@ namespace Application.Services
             }
 
 
-            var existingSession = _gymSessionRepository.GetGymSessionAvaiable()
-                                 .FirstOrDefault(session => session.TrainerId == newSessionDto.TrainerId &&
-                                                            session.SessionDate.Date == newSessionDto.SessionDate.Date);
-
-            if (existingSession != null)
+            if (newSessionDto.SessionDate < DateTime.Now.AddHours(3))
             {
-                throw new InvalidOperationException("Ya existe una sesión programada para este entrenador en la misma fecha.");
+                throw new ArgumentException("La sesión debe crearse con al menos 3 horas de anticipado.");
+            }
+
+            var sessionsCount = _gymSessionRepository.GetGymSessionAvaiable()
+                .Count(s => s.TrainerId == newSessionDto.TrainerId &&
+                           s.SessionDate.Date == newSessionDto.SessionDate.Date);
+
+            if (sessionsCount >= 3)
+            {
+                throw new InvalidOperationException("Ya tienes 3 clases programadas para ese día.");
+            }
+
+            // Verificar que no se solape con otra en el mismos horario
+            DateTime newStart = newSessionDto.SessionDate;
+            DateTime newEnd = newStart.AddHours(1);
+            var overlapping = _gymSessionRepository.GetGymSessionAvaiable()
+                .Any(s =>
+                {
+                    DateTime existingStart = s.SessionDate;
+                    DateTime existingEnd = existingStart.AddHours(1);
+                    return s.TrainerId == newSessionDto.TrainerId &&
+                           existingStart < newEnd && newStart < existingEnd;
+                });
+
+            if (overlapping)
+            {
+                throw new InvalidOperationException("Ya tienes una sesión en ese horario.");
             }
 
             var gymSession = newSessionDto.ToGymSession();
@@ -96,7 +118,7 @@ namespace Application.Services
             return GymSessionDTO.FromGymSession(existingSession);
         }
 
-        public bool DeleteGymSession(int sessionId)
+        public bool CancelGymSession(int sessionId)
         {
             var existingSession = _gymSessionRepository.GetById(sessionId)
                                   ?? throw new KeyNotFoundException("No se encontró la sesión");
@@ -110,6 +132,16 @@ namespace Application.Services
 
             existingSession.IsCancelled = true;
             _gymSessionRepository.update(existingSession);
+
+            return true;
+        }
+
+        public bool DeleteGymSession(int sessionId)
+        {
+            var existingSession = _gymSessionRepository.GetById(sessionId)
+                                  ?? throw new KeyNotFoundException("No se encontró la sesión");
+
+            _gymSessionRepository.delete(existingSession);
 
             return true;
         }

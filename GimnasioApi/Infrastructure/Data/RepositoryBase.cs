@@ -40,5 +40,12 @@ namespace Infrastructure.Data
         {
             return _context.Set<T>().Find(id); // Busca por Id
         }
+
+        public T delete(T entity)
+        {
+            _context.Set<T>().Remove(entity);
+            _context.SaveChanges();
+            return entity;
+        }
     }
 }

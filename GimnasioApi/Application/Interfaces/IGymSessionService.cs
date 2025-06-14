@@ -15,6 +15,8 @@ namespace Application.Interfaces
         ICollection<GymSessionWithClientsDTO> GetMySessions(int trainerId);
         GymSessionDTO CreateGymSession(GymSessionDTO newSessionDto);
         GymSessionDTO UpdateGymSession(int id, GymSessionDTO updatedData);
+        bool CancelGymSession(int sessionId);
+
         bool DeleteGymSession(int sessionId);
 
         Task<IEnumerable<GymSession>> GetSessionsByDateAsync(DateTime date);

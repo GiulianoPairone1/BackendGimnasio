@@ -19,6 +19,8 @@ namespace Application.Interfaces
 
         List<UserDTO> GetUsersAvailable();
         List<UserDTO> GetUsersAvailable<T>() where T : User;
-        bool DeleteUser(string mail);
+        bool DisableUser(string mail);
+
+        bool HardDeleteUser(string mail);
     }
 }

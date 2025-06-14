@@ -2,6 +2,7 @@
 using Domain.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,6 @@ namespace Application.Models.Dtos
         public string? RoutineName { get; set; }
         public int Id { get; set; }
         public SessionType SessionType { get; set; }
-        public bool IsCancelled { get; set; }
         public int ReservedPlaces { get; set; }
 
         // Método para crear GymSession
