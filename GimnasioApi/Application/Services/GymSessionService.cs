@@ -118,7 +118,7 @@ namespace Application.Services
             return GymSessionDTO.FromGymSession(existingSession);
         }
 
-        public bool DeleteGymSession(int sessionId)
+        public bool CancelGymSession(int sessionId)
         {
             var existingSession = _gymSessionRepository.GetById(sessionId)
                                   ?? throw new KeyNotFoundException("No se encontró la sesión");
@@ -132,6 +132,16 @@ namespace Application.Services
 
             existingSession.IsCancelled = true;
             _gymSessionRepository.update(existingSession);
+
+            return true;
+        }
+
+        public bool DeleteGymSession(int sessionId)
+        {
+            var existingSession = _gymSessionRepository.GetById(sessionId)
+                                  ?? throw new KeyNotFoundException("No se encontró la sesión");
+
+            _gymSessionRepository.delete(existingSession);
 
             return true;
         }

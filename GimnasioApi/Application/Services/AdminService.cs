@@ -93,7 +93,7 @@ namespace Application.Services
 
      
 
-        public bool DeleteUser(string mail)
+        public bool DisableUser(string mail)
         {
             if (string.IsNullOrWhiteSpace(mail))
                 throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(mail));
@@ -108,6 +108,24 @@ namespace Application.Services
 
             existingUser.IsAvailable = false;
             _userRepository.update(existingUser);
+
+            return true;
+        }
+
+        public bool HardDeleteUser(string mail)
+        {
+            if (string.IsNullOrWhiteSpace(mail))
+                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(mail));
+
+            var existingUser = _adminRepository.GetUserByEmail(mail)
+                                            ?? throw new KeyNotFoundException("No se encontró el usuario.");
+
+            if (!existingUser.IsAvailable)
+            {
+                throw new InvalidOperationException("El usuario ya ha sido eliminado.");
+            }
+
+            _userRepository.delete(existingUser);
 
             return true;
         }

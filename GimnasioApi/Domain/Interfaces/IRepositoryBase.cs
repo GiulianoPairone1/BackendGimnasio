@@ -14,5 +14,7 @@ namespace Domain.Interfaces
         T update(T entity);
 
         T GetById(int id);
+
+        T delete(T entity);
     }
 }

@@ -52,10 +52,10 @@ namespace GimnasioApi.Controllers
             return Ok(updatedSession);
         }
 
-        [HttpDelete("{sessionId}")]
-        public IActionResult Delete(int sessionId)
+        [HttpDelete("Cancel/{sessionId}")]
+        public IActionResult Cancel(int sessionId)
         {
-            _gymSessionService.DeleteGymSession(sessionId);
+            _gymSessionService.CancelGymSession(sessionId);
             return NoContent();
         }
 
@@ -64,6 +64,13 @@ namespace GimnasioApi.Controllers
         {
             var sessions = await _gymSessionService.GetSessionsByDateAsync(date);
             return Ok(sessions);
+        }
+
+        [HttpDelete("{sessionId}")]
+        public IActionResult DeleteSession(int sessionId)
+        {
+            _gymSessionService.DeleteGymSession(sessionId);
+            return NoContent();
         }
     }
 }

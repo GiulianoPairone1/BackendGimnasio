@@ -60,10 +60,17 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [HttpDelete("DeleteUser")]
-        public IActionResult DeleteUser(string mail)
+        [HttpDelete("DisableUser")]
+        public IActionResult DisableUser(string mail)
         {
-            _adminService.DeleteUser(mail);
+            _adminService.DisableUser(mail);
+            return NoContent();
+        }
+
+        [HttpDelete("DeleteUser")]
+        public IActionResult Delete(string mail)
+        {
+            _adminService.HardDeleteUser(mail);
             return NoContent();
         }
     }
