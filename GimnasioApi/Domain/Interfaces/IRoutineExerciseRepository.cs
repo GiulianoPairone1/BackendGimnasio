@@ -10,5 +10,7 @@ namespace Domain.Interfaces
 {
     public interface IRoutineExerciseRepository:IRepositoryBase<RoutineExercise>
     {
+        void RemoveRoutineExercise(RoutineExercise routineExercise);
+        RoutineExercise? GetRoutineExercise(int routineId, int exerciseId);
     }
 }

@@ -28,7 +28,6 @@ namespace GimnasioApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Trainer")]
         public IActionResult Add([FromBody] ExerciseDTO exerciseDTO)
         {
             if (!ModelState.IsValid)

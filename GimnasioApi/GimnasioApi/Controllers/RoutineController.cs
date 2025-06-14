@@ -36,5 +36,32 @@ namespace GimnasioApi.Controllers
             var addedroutine = _routineService.CreateRoutine(routineDTO);
             return Ok(addedroutine);
         }
+
+        [HttpGet("routines/{trainerId}")]
+        public ActionResult<List<RoutineWithExercisesDTO>> GetRoutines(int trainerId)
+        {
+            var routines = _routineService.GetRoutinesByTrainerId(trainerId);
+            if (routines == null || routines.Count == 0)
+            {
+                return NotFound("Usted no tiene rutinas creadas.");
+            }
+            return Ok(routines);
+        }
+
+        [HttpPut("routine/{routineId}")]
+        public IActionResult UpdateRoutine(int routineId, [FromBody] RoutineDTO updatedData)
+        {
+            var updateRoutine = _routineService.UpdateRoutine(routineId, updatedData);
+            return Ok();
+        }
+
+        [HttpDelete("routine/{routineId}")]
+        public IActionResult Delete(int routineId)
+        {
+            _routineService.DeleteRoutine(routineId);
+            return NoContent();
+        }
+
+
     }
 }

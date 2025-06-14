@@ -50,5 +50,13 @@ namespace GimnasioApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpDelete("RoutineExercise/{routineId}/{exerciseId}")]
+        public IActionResult UnregisterFromGymSession(int routineId, int exerciseId)
+        {
+            _routineExerciseService.DeleteRoutineExercise(routineId, exerciseId);
+            return Ok("Se ha eliminado el ejercicio de la rutina correctamente.");
+        }
     }
 }

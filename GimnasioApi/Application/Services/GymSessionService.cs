@@ -14,10 +14,12 @@ namespace Application.Services
     public class GymSessionService : IGymSessionService
     {
         private readonly IGymSessionRepository _gymSessionRepository;
+        private readonly IRoutineService _routineService;
 
-        public GymSessionService(IGymSessionRepository gymSessionRepository)
+        public GymSessionService(IGymSessionRepository gymSessionRepository, IRoutineService routineService)
         {
             _gymSessionRepository = gymSessionRepository;
+            _routineService = routineService;
         }
 
         public ICollection<GymSessionDTO> GetAllGymSessions()
@@ -131,6 +133,7 @@ namespace Application.Services
 
 
             existingSession.IsCancelled = true;
+            _routineService.DeleteRoutine(existingSession.RoutineId);
             _gymSessionRepository.update(existingSession);
 
             return true;
@@ -141,6 +144,7 @@ namespace Application.Services
             var existingSession = _gymSessionRepository.GetById(sessionId)
                                   ?? throw new KeyNotFoundException("No se encontró la sesión");
 
+            _routineService.DeleteRoutine(existingSession.RoutineId);
             _gymSessionRepository.delete(existingSession);
 
             return true;

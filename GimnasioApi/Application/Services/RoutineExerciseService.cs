@@ -95,5 +95,18 @@ namespace Application.Services
             _routineExerciseRepository.update(routineExercise);
         }
 
+        public bool DeleteRoutineExercise (int routineId, int exerciseId)
+        {
+            var existingRoutineExercise = _routineExerciseRepository.GetRoutineExercise(routineId, exerciseId)
+                ?? throw new InvalidOperationException("El ejercicio no está agregado en la rutina.");
+
+            //if (existingRoutineExercise.Routine.IsAvailable == false)
+            //    throw new InvalidOperationException("La sesión ya no está disponible.");
+
+            _routineExerciseRepository.RemoveRoutineExercise(existingRoutineExercise);
+
+            return true;
+        }
+
     }
 }

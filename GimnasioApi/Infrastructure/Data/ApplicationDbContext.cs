@@ -21,6 +21,7 @@ namespace Infrastructure.Data
         public DbSet<Routine> Routines { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
         public DbSet<ClientGymSession> ClientGymSessions { get; set; }
+        public DbSet<RoutineExercise> RoutineExercises { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 

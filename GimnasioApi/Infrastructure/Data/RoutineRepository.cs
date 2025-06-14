@@ -26,5 +26,16 @@ namespace Infrastructure.Data
                 .Where(routine => routine.IsAvailable)
                 .ToList();
         }
+
+        public List<Routine> GetRoutinesByTrainer(int trainerId) {
+            return _applicationDbContext.GymSessions
+                .Where(s => s.TrainerId == trainerId)
+                .Include(s => s.Routine)
+                .ThenInclude(r => r.RoutineExercises)
+                .ThenInclude(re => re.Exercise)
+                .Select(s => s.Routine)
+                .Distinct()
+                .ToList();
+        }
     }
 }
