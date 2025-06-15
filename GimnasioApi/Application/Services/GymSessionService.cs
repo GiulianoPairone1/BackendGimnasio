@@ -15,11 +15,13 @@ namespace Application.Services
     {
         private readonly IGymSessionRepository _gymSessionRepository;
         private readonly IRoutineService _routineService;
+        private readonly IClientGymSessionRepository _clientGymSessionRepository;
 
-        public GymSessionService(IGymSessionRepository gymSessionRepository, IRoutineService routineService)
+        public GymSessionService(IGymSessionRepository gymSessionRepository, IRoutineService routineService, IClientGymSessionRepository clientGymSessionRepository)
         {
             _gymSessionRepository = gymSessionRepository;
             _routineService = routineService;
+            _clientGymSessionRepository = clientGymSessionRepository
         }
 
         public ICollection<GymSessionDTO> GetAllGymSessions()
@@ -131,6 +133,10 @@ namespace Application.Services
                 throw new InvalidOperationException("La sesión ya ha sido cancelada.");
             }
 
+            foreach (var clientGymSession in existingSession.ClientGymSessions)
+            {
+                _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+            }
 
             existingSession.IsCancelled = true;
             _routineService.DeleteRoutine(existingSession.RoutineId);
@@ -143,6 +149,11 @@ namespace Application.Services
         {
             var existingSession = _gymSessionRepository.GetById(sessionId)
                                   ?? throw new KeyNotFoundException("No se encontró la sesión");
+
+            foreach (var clientGymSession in existingSession.ClientGymSessions)
+            {
+                _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+            }
 
             _routineService.DeleteRoutine(existingSession.RoutineId);
             _gymSessionRepository.delete(existingSession);
