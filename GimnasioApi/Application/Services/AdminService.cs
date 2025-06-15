@@ -15,12 +15,21 @@ namespace Application.Services
     public class AdminService : IAdminService
     {
         private readonly IAdminRepository _adminRepository;
-        private readonly IUserRepository _userRepository;   
+        private readonly IUserRepository _userRepository;
+        private readonly IClientGymSessionRepository _clientGymSessionRepository;
+        private readonly IClientRepository _clientRepository;
+        private readonly ITrainerRepository _trainerRepository;
+        private readonly IGymSessionService _gymSessionService;
 
-        public AdminService(IAdminRepository adminRepository, IUserRepository userRepository) 
+
+        public AdminService(IAdminRepository adminRepository, IUserRepository userRepository, IClientGymSessionRepository clientGymSessionRepository, IClientRepository clientRepository, ITrainerRepository trainerRepository, IGymSessionService gymSessionService) 
         {
             _adminRepository = adminRepository;
             _userRepository = userRepository;
+            _clientGymSessionRepository = clientGymSessionRepository;
+            _clientRepository = clientRepository;
+            _trainerRepository = trainerRepository;
+            _gymSessionService = gymSessionService;
         }
 
         public List<AdminDTO> GetAll()
@@ -106,9 +115,51 @@ namespace Application.Services
                 throw new InvalidOperationException("El usuario ya ha sido eliminado.");
             }
 
-            existingUser.IsAvailable = false;
+            if (existingUser.UserType == UserType.Client)
+            {
+                var client = _clientRepository.FindByCondition(p => p.Email == mail); 
+                foreach (var clientGymSession in client.ClientGymSessions)
+                {
+                    _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+                }
+            }
+
+            if (existingUser.UserType == UserType.Trainer)
+            {
+                var trainer = _trainerRepository.FindByCondition(p => p.Email == mail);
+                foreach (var gymSession in trainer.GymSessions)
+                {
+
+                    foreach (var clientGymSession in gymSession.ClientGymSessions)
+                    {
+                        _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+                    }
+
+                    _gymSessionService.DeleteGymSession(gymSession.Id);
+                }
+            }
+
+                existingUser.IsAvailable = false;
             _userRepository.update(existingUser);
 
+            return true;
+        }
+
+        public bool ActivateUser(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("El correo electrónico no puede ser nulo o vacío.", nameof(email));
+
+            var existingUser = _adminRepository.GetUserByEmail(email)
+                                           ?? throw new KeyNotFoundException("Usuario no encontrado.");
+
+            if (existingUser.IsAvailable)
+            {
+                throw new InvalidOperationException("El usuario ya está activo.");
+            }
+
+            existingUser.IsAvailable = true;
+            _userRepository.update(existingUser);
             return true;
         }
 
@@ -123,6 +174,30 @@ namespace Application.Services
             if (!existingUser.IsAvailable)
             {
                 throw new InvalidOperationException("El usuario ya ha sido eliminado.");
+            }
+
+            if (existingUser.UserType == UserType.Client)
+            {
+                var client = _clientRepository.FindByCondition(p => p.Email == mail);
+                foreach (var clientGymSession in client.ClientGymSessions)
+                {
+                    _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+                }
+            }
+
+            if (existingUser.UserType == UserType.Trainer)
+            {
+                var trainer = _trainerRepository.FindByCondition(p => p.Email == mail);
+                foreach (var gymSession in trainer.GymSessions)
+                {
+
+                    foreach (var clientGymSession in gymSession.ClientGymSessions)
+                    {
+                        _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
+                    }
+
+                    _gymSessionService.DeleteGymSession(gymSession.Id);
+                }
             }
 
             _userRepository.delete(existingUser);
