@@ -20,6 +20,7 @@ namespace Application.Interfaces
         List<UserDTO> GetUsersAvailable();
         List<UserDTO> GetUsersAvailable<T>() where T : User;
         bool DisableUser(string mail);
+        bool ActivateUser(string email);
 
         bool HardDeleteUser(string mail);
     }

@@ -73,5 +73,28 @@ namespace GimnasioApi.Controllers
             _adminService.HardDeleteUser(mail);
             return NoContent();
         }
+
+        [HttpPut("activate-user/{email}")]
+        public IActionResult ActivateUser(string email)
+        {
+            try
+            {
+                _adminService.ActivateUser(email);
+                return Ok($"Usuario activado con éxito.");
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
+

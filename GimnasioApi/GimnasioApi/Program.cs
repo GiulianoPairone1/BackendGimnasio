@@ -70,6 +70,7 @@ builder.Services.AddScoped<IRoutineExerciseRepository, RoutineExerciseRepository
 
 #region Services
 builder.Services.AddScoped<ISendEmailService, SendEmailService>();
+builder.Services.AddHostedService<CleanupClientGymSessions>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ISuperAdminService,SuperAdminService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
