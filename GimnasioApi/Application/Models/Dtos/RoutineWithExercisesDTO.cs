@@ -9,6 +9,7 @@ namespace Application.Models.Dtos
 {
     public class RoutineWithExercisesDTO
     {
+        public int id { get; set; }
         public string Name { get; set; }
         public bool IsAvailable { get; set; }
         public List<ExerciseDTO> Exercises { get; set; }
@@ -17,6 +18,7 @@ namespace Application.Models.Dtos
         {
             return new RoutineWithExercisesDTO
             {
+                id = routine.Id,
                 Name = routine.Name,
                 IsAvailable = routine.IsAvailable,
                 Exercises = routine.RoutineExercises?.Select(re => new ExerciseDTO

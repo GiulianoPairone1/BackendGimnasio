@@ -21,7 +21,7 @@ namespace Application.Services
         {
             _gymSessionRepository = gymSessionRepository;
             _routineService = routineService;
-            _clientGymSessionRepository = clientGymSessionRepository
+            _clientGymSessionRepository = clientGymSessionRepository;
         }
 
         public ICollection<GymSessionDTO> GetAllGymSessions()
