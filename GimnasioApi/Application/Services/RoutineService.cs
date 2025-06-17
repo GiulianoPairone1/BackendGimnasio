@@ -74,10 +74,10 @@ namespace Application.Services
                                    ?? throw new KeyNotFoundException("No se encontró la rutina");
 
 
-            if (!existingRoutine.IsAvailable)
-            {
-                throw new InvalidOperationException("La rutina ya ha sido eliminada.");
-            }
+            //if (!existingRoutine.IsAvailable)
+            //{
+            //    throw new InvalidOperationException("La rutina ya ha sido eliminada.");
+            //}
 
 
             existingRoutine.IsAvailable = false;
