@@ -74,7 +74,6 @@ namespace Application.Services
                                    ?? throw new KeyNotFoundException("No se encontró la rutina");
 
 
-<<<<<<< HEAD
             if (!existingRoutine.IsAvailable)
             {
                 // Ya estaba eliminada, no hacer nada
