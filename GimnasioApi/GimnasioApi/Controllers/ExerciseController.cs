@@ -19,7 +19,7 @@ namespace GimnasioApi.Controllers
             _exerciseService = exerciseService;
         }
 
-
+        [Authorize(Roles = "Trainer,Admin,SuperAdmin")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -27,17 +27,36 @@ namespace GimnasioApi.Controllers
             return Ok(exercises);
         }
 
+        [Authorize(Roles = "Trainer,SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] ExerciseDTO exerciseDTO)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                var addedExercise = _exerciseService.CreateExercise(exerciseDTO);
+                return Ok(addedExercise);
             }
-            var addedexercise = _exerciseService.CreateExercise(exerciseDTO);
-            return Ok(addedexercise);
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Trainer,SuperAdmin")]
         [HttpPut("{id}")]
         public ActionResult<ExerciseDTO> UpdateExercise(int id, [FromBody] ExerciseDTO updatedExercise)
         {
@@ -60,6 +79,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
+        [Authorize(Roles = "Trainer,Admin,SuperAdmin")]
         [HttpDelete("{id}")]
         public ActionResult DeleteExercise(int id)
         {

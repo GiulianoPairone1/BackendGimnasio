@@ -13,6 +13,7 @@ using static Infrastructure.Services.AutenticacionService;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using GimnasioApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -119,6 +120,7 @@ builder.Services.AddAuthentication("Bearer")
 
 var app = builder.Build();
 
+
 app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
@@ -131,6 +133,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.MapControllers();
 

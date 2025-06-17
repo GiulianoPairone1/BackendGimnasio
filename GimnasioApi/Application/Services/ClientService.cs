@@ -22,6 +22,10 @@ namespace Application.Services
                     Name = client.Name,
                     Surname = client.Surname,
                     Email = client.Email,
+                    Phone = client.Phone,
+                    Password = client.Password,
+                    Weight = client.Weight,
+                    Height = client.Height,
                 })
                 .ToList();
         }
@@ -39,6 +43,10 @@ namespace Application.Services
                 Name = client.Name,
                 Surname = client.Surname,
                 Email = client.Email,
+                Phone = client.Phone,
+                Password = client.Password,
+                Weight = client.Weight,
+                Height = client.Height,
             };
         }
 

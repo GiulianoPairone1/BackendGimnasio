@@ -51,7 +51,7 @@ namespace Application.Models.Dtos
                 Id = gymSession.Id,
                 SessionDate = gymSession.SessionDate,
                 TrainerId = gymSession.TrainerId,
-                RoutineName = gymSession.Routine.Name,
+                RoutineName = gymSession.Routine?.Name,
                 RoutineId = gymSession.RoutineId,
                 SessionType = gymSession.SessionType,
                 ReservedPlaces = gymSession.ClientGymSessions.Count()

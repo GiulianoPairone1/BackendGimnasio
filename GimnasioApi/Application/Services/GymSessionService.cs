@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Application.Services
 {
@@ -16,12 +17,16 @@ namespace Application.Services
         private readonly IGymSessionRepository _gymSessionRepository;
         private readonly IRoutineService _routineService;
         private readonly IClientGymSessionRepository _clientGymSessionRepository;
+        private readonly ISendEmailService _sendEmailService;
+        private readonly IClientRepository _clientRepository;
 
-        public GymSessionService(IGymSessionRepository gymSessionRepository, IRoutineService routineService, IClientGymSessionRepository clientGymSessionRepository)
+        public GymSessionService(IGymSessionRepository gymSessionRepository, IRoutineService routineService, IClientGymSessionRepository clientGymSessionRepository, ISendEmailService sendEmailService, IClientRepository clientRepository)
         {
             _gymSessionRepository = gymSessionRepository;
             _routineService = routineService;
             _clientGymSessionRepository = clientGymSessionRepository;
+            _sendEmailService = sendEmailService;
+            _clientRepository = clientRepository;
         }
 
         public ICollection<GymSessionDTO> GetAllGymSessions()
@@ -124,8 +129,9 @@ namespace Application.Services
 
         public bool CancelGymSession(int sessionId)
         {
-            var existingSession = _gymSessionRepository.GetById(sessionId)
+            var existingSession = _gymSessionRepository.GetGymSessionWithClients(sessionId)
                                   ?? throw new KeyNotFoundException("No se encontró la sesión");
+
 
 
             if (!existingSession.IsAvailable)
@@ -133,7 +139,30 @@ namespace Application.Services
                 throw new InvalidOperationException("La sesión ya ha sido cancelada.");
             }
 
+            string subject = "Cancelación de tu clase programada del – " + existingSession.SessionDate.ToString("dd/MM/yyyy");
+
+            string body = $"Hola,\n\n" +
+                          $"Lamentamos informarte que la clase programada para el día {existingSession.SessionDate:dd/MM/yyyy} ha sido cancelada debido a circunstancias imprevistas.\n\n" +
+                          $"Si ya habías reservado tu lugar, esta cancelación se aplica a tu reserva y no tendrás ningún cargo por esta sesión.\n\n" +
+                          $"Por favor, mantente atento/a a nuestras próximas clases y no dudes en contactarnos si tienes alguna consulta o deseas reprogramar.\n\n" +
+                          $"Gracias por tu comprensión y te esperamos pronto.\n\n" +
+                          $"Saludos cordiales,\n" +
+                          $"El equipo de Utnenegger Gym";
+
             foreach (var clientGymSession in existingSession.ClientGymSessions)
+            {
+                var client = clientGymSession.Client;
+
+                if (client != null && !string.IsNullOrEmpty(client.Email))
+                {
+                    _sendEmailService.SendEmail(
+                        client.Email,
+                        subject,
+                        body);
+                }
+            }
+
+            foreach (var clientGymSession in existingSession.ClientGymSessions.ToList())
             {
                 _clientGymSessionRepository.RemoveClientGymSession(clientGymSession);
             }
