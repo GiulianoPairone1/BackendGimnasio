@@ -76,7 +76,8 @@ namespace Application.Services
 
             if (!existingRoutine.IsAvailable)
             {
-                throw new InvalidOperationException("La rutina ya ha sido eliminada.");
+                // Ya estaba eliminada, no hacer nada
+                return true;
             }
 
 
