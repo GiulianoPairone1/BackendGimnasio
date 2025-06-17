@@ -90,7 +90,7 @@ namespace Application.Services
                 });
 
             if (overlapping)
-            {
+            { 
                 throw new InvalidOperationException("Ya tienes una sesión en ese horario.");
             }
 
