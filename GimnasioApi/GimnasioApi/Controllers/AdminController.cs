@@ -6,6 +6,7 @@ using Domain.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace GimnasioApi.Controllers
 {
@@ -14,10 +15,67 @@ namespace GimnasioApi.Controllers
     public class AdminController : ControllerBase
     {
         private readonly IAdminService _adminService;
+        private readonly ISendEmailService _sendEmailService;
 
-        public AdminController(IAdminService adminService)
+        public AdminController(IAdminService adminService, ISendEmailService sendEmailService)
         {
             _adminService = adminService;
+            _sendEmailService = sendEmailService;
+        }
+
+        [HttpPost("enviar-consulta")]
+        public IActionResult EnviarConsulta([FromBody] InfoEmailDTO infoMailDTO)
+        {
+
+            if (infoMailDTO == null)
+            {
+                return BadRequest("No se proporcionó información.");
+            }
+            if (string.IsNullOrWhiteSpace(infoMailDTO.Name))
+            {
+                return BadRequest("El nombre es requerido.");
+            }
+            if (string.IsNullOrWhiteSpace(infoMailDTO.Surname))
+            {
+                return BadRequest("El apellido es requerido.");
+            }
+            if (string.IsNullOrWhiteSpace(infoMailDTO.Email))
+            {
+                return BadRequest("El correo electrónico es requerido.");
+            }
+            if (string.IsNullOrWhiteSpace(infoMailDTO.Phone))
+            {
+                return BadRequest("El teléfono es requerido.");
+            }
+            if (!new EmailAddressAttribute().IsValid(infoMailDTO.Email))
+            {
+                return BadRequest("El correo electrónico no tiene un formato válido.");
+            }
+            if (string.IsNullOrWhiteSpace(infoMailDTO.Message))
+            {
+                return BadRequest("El mensaje de consulta es requerido.");
+            }
+
+
+            try
+            {
+
+                string MailGymUTN = "utneggergym@gmail.com";
+                string subject = $"Nueva consulta de {infoMailDTO.Name} {infoMailDTO.Surname}";
+                string body = $"Solicitante: {infoMailDTO.Name} {infoMailDTO.Surname}\n" +
+                               $"Email: {infoMailDTO.Email}\n\n" +
+                               $"Mensaje:\n{infoMailDTO.Message}";
+
+
+                _sendEmailService.SendEmail(MailGymUTN, subject, body);
+                return Ok("Consulta enviada.");
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, $"Error interno al intentar enviar la consulta: {ex.Message}");
+
+            }
         }
 
         [Authorize(Roles = "Admin,SuperAdmin")]
