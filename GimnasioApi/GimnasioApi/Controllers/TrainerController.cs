@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Models.Dtos;
 using Application.Services;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +18,7 @@ namespace GimnasioApi.Controllers
             _trainerService = trainerService;
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet]
         public IActionResult Get()
         {
@@ -25,6 +26,7 @@ namespace GimnasioApi.Controllers
             return Ok(trainers);
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] TrainerDTO trainerDto)
         {

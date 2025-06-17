@@ -1,7 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Models.Dtos;
 using Application.Services;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,12 +18,14 @@ namespace GimnasioApi.Controllers
             _superadminservice = superadminservice;
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         [HttpGet]
         public IActionResult Get()
         {
             var superadminds = _superadminservice.GetAll();
             return Ok(superadminds);
         }
+
 
         [HttpPost]
         public IActionResult Add([FromBody] SuperAdminDTO superadminDto)

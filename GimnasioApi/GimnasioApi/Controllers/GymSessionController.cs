@@ -2,6 +2,7 @@
 using Application.Models.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GimnasioApi.Controllers
 {
@@ -16,61 +17,169 @@ namespace GimnasioApi.Controllers
             _gymSessionService = gymSessionService;
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet]
         public IActionResult GetAll()
         {
-            var sessions = _gymSessionService.GetAllGymSessions();
-            return Ok(sessions);
+            try
+            {
+                var sessions = _gymSessionService.GetAllGymSessions();
+                return Ok(sessions);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
+
 
         [HttpGet("GetAllGymSessionsAvailable")]
         public IActionResult GetAllAvailable()
         {
-            var sessions = _gymSessionService.GetAllAvailable();
-            return Ok(sessions);
+            try
+            {
+                var sessions = _gymSessionService.GetAllAvailable();
+                return Ok(sessions);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+        [Authorize(Roles = "Trainer,SuperAdmin")]
         [HttpGet("GetMyTrainerSessions/{trainerId}")]
         public IActionResult GetMySessions(int trainerId)
         {
-            var sessions = _gymSessionService.GetMySessions(trainerId);
-            return Ok(sessions);
+            try
+            {
+                var sessions = _gymSessionService.GetMySessions(trainerId);
+                return Ok(sessions);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+        [Authorize(Roles = "Trainer,SuperAdmin")]
         [HttpPost]
         public IActionResult Create([FromBody] GymSessionDTO newSessionDto)
         {
-            var createdSession = _gymSessionService.CreateGymSession(newSessionDto);
-            //return CreatedAtAction(nameof(GetAll), new { id = createdSession.Id }, createdSession);
-            return CreatedAtAction(nameof(GetAll),createdSession);
+            try
+            {
+                var createdSession = _gymSessionService.CreateGymSession(newSessionDto);
+                return CreatedAtAction(nameof(GetAll), new { id = createdSession.Id }, createdSession);
+            }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Trainer,SuperAdmin")]
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] GymSessionDTO updatedData)
         {
-            var updatedSession = _gymSessionService.UpdateGymSession(id, updatedData);
-            return Ok(updatedSession);
+            try
+            {
+                var updatedSession = _gymSessionService.UpdateGymSession(id, updatedData);
+                return Ok(updatedSession);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Trainer,Admin,SuperAdmin")]
         [HttpDelete("Cancel/{sessionId}")]
         public IActionResult Cancel(int sessionId)
         {
-            _gymSessionService.CancelGymSession(sessionId);
-            return NoContent();
+            try
+            {
+                _gymSessionService.CancelGymSession(sessionId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
         [HttpGet("byDate")]
         public async Task<IActionResult> GetSessionsByDate([FromQuery] DateTime date)
         {
-            var sessions = await _gymSessionService.GetSessionsByDateAsync(date);
-            return Ok(sessions);
+            try
+            {
+                var sessions = await _gymSessionService.GetSessionsByDateAsync(date);
+                return Ok(sessions);
+            }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpDelete("{sessionId}")]
         public IActionResult DeleteSession(int sessionId)
         {
-            _gymSessionService.DeleteGymSession(sessionId);
-            return NoContent();
+            try
+            {
+                _gymSessionService.DeleteGymSession(sessionId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
     }
 }

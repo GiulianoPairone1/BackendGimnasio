@@ -1,7 +1,8 @@
 ﻿using Application.Interfaces;
 using Application.Models.Dtos;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace GimnasioApi.Controllers
 {
@@ -16,13 +17,26 @@ namespace GimnasioApi.Controllers
             _routineExerciseService = routexerciseService;
         }
 
+        [Authorize(Roles = "Trainer,Admin,SuperAdmin")]
         [HttpGet]
         public IActionResult GetAll()
         {
-            var relations = _routineExerciseService.GetAll();
-            return Ok(relations); // Aquí devolverías la lista con los nombres incluidos
+            try
+            {
+                var relations = _routineExerciseService.GetAll();
+                return Ok(relations);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+        [Authorize(Roles = "Trainer, SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] RoutineExerciseDTO dto)
         {
@@ -31,12 +45,21 @@ namespace GimnasioApi.Controllers
                 _routineExerciseService.Add(dto);
                 return Ok("Ejercicio agregado correctamente.");
             }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
 
+        [Authorize(Roles = "Trainer, SuperAdmin")]
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] RoutineExerciseDTO dto)
         {
@@ -45,18 +68,45 @@ namespace GimnasioApi.Controllers
                 _routineExerciseService.Update(id, dto);
                 return Ok("Relación actualizada correctamente.");
             }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
 
-
+        [Authorize(Roles = "Trainer, SuperAdmin")]
         [HttpDelete("RoutineExercise/{routineId}/{exerciseId}")]
         public IActionResult UnregisterFromGymSession(int routineId, int exerciseId)
         {
-            _routineExerciseService.DeleteRoutineExercise(routineId, exerciseId);
-            return Ok("Se ha eliminado el ejercicio de la rutina correctamente.");
+            try
+            {
+                _routineExerciseService.DeleteRoutineExercise(routineId, exerciseId);
+                return Ok("Se ha eliminado el ejercicio de la rutina correctamente.");
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
     }
 }

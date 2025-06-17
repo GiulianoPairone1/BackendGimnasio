@@ -5,6 +5,7 @@ using Domain.Entities;
 using Domain.Enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GimnasioApi.Controllers
 {
@@ -19,61 +20,169 @@ namespace GimnasioApi.Controllers
             _adminService = adminService;
         }
 
-
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("GetAll")]
         public IActionResult Get()
         {
-            var admins = _adminService.GetAll();
-            return Ok(admins);
+            try
+            {
+                var admins = _adminService.GetAll();
+                return Ok(admins);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost("Create")]
         public IActionResult Add([FromBody] AdminDTO adminDto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
+
+            try
+            {
+                var addedadmin = _adminService.Create(adminDto);
+                return Ok(addedadmin);
             }
-            var addedadmin = _adminService.Create(adminDto);
-            return Ok(addedadmin);
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentNullException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("GetUserByEmail")]
         public IActionResult GetUserByEmail(string email)
         {
-            var user = _adminService.GetUserByEmail(email);
-            return Ok(user);
+            try
+            {
+                var user = _adminService.GetUserByEmail(email);
+                return Ok(user);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("GetUsersAvailable")]
         public IActionResult GetUsersAvailable()
         {
-            var users = _adminService.GetUsersAvailable();
-            return Ok(users);
+            try
+            {
+                var users = _adminService.GetUsersAvailable();
+                return Ok(users);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("GetUsersAvailableByType")]
         public IActionResult GetUsersAvailableByType<T>() where T : User
         {
-            var users = _adminService.GetUsersAvailable<T>();
-            return Ok(users);
+            try
+            {
+                var users = _adminService.GetUsersAvailable<T>();
+                return Ok(users);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpDelete("DisableUser")]
         public IActionResult DisableUser(string mail)
         {
-            _adminService.DisableUser(mail);
-            return NoContent();
+            try
+            {
+                _adminService.DisableUser(mail);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpDelete("DeleteUser")]
         public IActionResult Delete(string mail)
         {
-            _adminService.HardDeleteUser(mail);
-            return NoContent();
+            try
+            {
+                _adminService.HardDeleteUser(mail);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPut("activate-user/{email}")]
         public IActionResult ActivateUser(string email)
         {

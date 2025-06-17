@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models.Dtos;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,14 +17,22 @@ namespace GimnasioApi.Controllers
             _clientService = clientService;
         }
 
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet]
         public IActionResult Get()
         {
-            var clients = _clientService.GetAll();
-            return Ok(clients);
+            try
+            {
+                var clients = _clientService.GetAll();
+                return Ok(clients);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
-
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] ClientDTO clientDto)
         {
@@ -32,47 +40,107 @@ namespace GimnasioApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var addedclient = _clientService.Create(clientDto);
-            return Ok(addedclient);
+
+            try
+            {
+                var addedclient = _clientService.Create(clientDto);
+                return Ok(addedclient);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
-     
+
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("GetByMail/{email}")]
         public IActionResult GetByEmail(string email)
         {
-            var client = _clientService.GetByGetUserByEmail(email);
-            if (client == null)
-                return NotFound("Cliente no encontrado.");
+            try
+            {
+                var client = _clientService.GetByGetUserByEmail(email);
+                if (client == null)
+                    return NotFound("Cliente no encontrado.");
 
-            return Ok(client);
+                return Ok(client);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
 
+        [Authorize(Roles = "Client, SuperAdmin")]
         [HttpGet("GetMyClientSessions/{clientId}")]
         public IActionResult GetMyGymSessions(int clientId)
         {
-            var sessions = _clientService.GetMyGymSessions(clientId);
-            return Ok(sessions);
+            try
+            {
+                var sessions = _clientService.GetMyGymSessions(clientId);
+                return Ok(sessions);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
 
-
+        [Authorize(Roles = "Client, SuperAdmin")]
         [HttpPut("UpdateProfile/{clientId}")]
         public IActionResult UpdateProfile(int clientId, ClientDTO clientDto)
         {
-            var updatedClient = _clientService.UpdateProfile(clientId, clientDto);
-            return Ok(updatedClient);
+            try
+            {
+                var updatedClient = _clientService.UpdateProfile(clientId, clientDto);
+                return Ok(updatedClient);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
 
+
+        [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("ById/{clientId}")]
         public IActionResult GetClientById(int clientId)
         {
-            var client = _clientService.GetClientById(clientId);
-            if (client == null)
-                return NotFound("Cliente no encontrado.");
+            try
+            {
+                var client = _clientService.GetClientById(clientId);
+                if (client == null)
+                    return NotFound("Cliente no encontrado.");
 
-            return Ok(client);
-
+                return Ok(client);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
         }
+
     }
 }
