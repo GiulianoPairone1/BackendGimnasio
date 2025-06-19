@@ -67,6 +67,36 @@ namespace GimnasioApi.Controllers
         }
 
 
+
+
+        [Authorize(Roles = "Trainer, SuperAdmin")]
+        [HttpPost("AddRange")]
+        public IActionResult AddRange([FromBody] RoutineWithExercisesDTO routineDTO)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var addedRoutine = _routineService.RangeCreateRoutine(routineDTO);
+                return Ok(addedRoutine);
+            }
+            catch (ArgumentException argEx)
+            {
+                return BadRequest(argEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
+        }
+
+
+
         [Authorize(Roles = "Trainer, Admin, SuperAdmin")]
         [HttpGet("routines/{trainerId}")]
         public ActionResult<List<RoutineWithExercisesDTO>> GetRoutines(int trainerId)
