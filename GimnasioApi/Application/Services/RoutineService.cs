@@ -1,6 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models.Dtos;
-
+using Domain.Entities;
 using Domain.Interfaces;
 
 using System;
@@ -56,6 +56,43 @@ namespace Application.Services
 
             return RoutineDTO.FromRoutine(created);
         }
+
+
+        public RoutineWithExercisesDTO RangeCreateRoutine(RoutineWithExercisesDTO newRoutineDto)
+        {
+
+            if (string.IsNullOrWhiteSpace(newRoutineDto.Name))
+                throw new ArgumentException("El nombre de la rutina no puede estar vacío.");
+
+            var routine = new Routine
+            {
+                Name = newRoutineDto.Name,
+
+            };
+
+            var exercises = newRoutineDto.Exercises.Select(x => new Exercise
+            {
+                Name = x.Name,
+                Sets = x.Sets,
+                Reps = x.Reps,
+                RestTime = x.RestTime,
+            }).ToList();
+
+            var routineExercise = exercises.Select(x => new RoutineExercise
+            {
+                Routine = routine,
+                RoutineId = routine.Id,
+                Exercise = x,
+                ExerciseId = x.Id
+            }).ToList();
+
+            var created = _routineRepository.addRange(routine, exercises, routineExercise);
+
+            return RoutineWithExercisesDTO.FromRoutine(created);
+        }
+
+
+
         public RoutineDTO UpdateRoutine(int id, RoutineDTO updatedData) {
 
             if (string.IsNullOrWhiteSpace(updatedData.Name))

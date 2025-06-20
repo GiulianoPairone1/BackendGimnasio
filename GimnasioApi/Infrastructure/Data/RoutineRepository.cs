@@ -37,5 +37,14 @@ namespace Infrastructure.Data
                 .Distinct()
                 .ToList();
         }
+
+        public Routine addRange(Routine routine, List<Exercise> exercises, List<RoutineExercise> routineExercise)
+        {
+            _applicationDbContext.Routines.Add(routine);
+            _applicationDbContext.Exercises.AddRange(exercises);
+            _applicationDbContext.RoutineExercises.AddRange(routineExercise);
+            _applicationDbContext.SaveChanges();
+            return routine;
+        }
     }
 }

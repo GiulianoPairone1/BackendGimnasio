@@ -15,5 +15,7 @@ namespace Domain.Interfaces
         List<Routine> GetRoutineAvaiable();
 
         List<Routine> GetRoutinesByTrainer(int trainerId);
+
+        Routine addRange(Routine routine, List<Exercise> exercises,List<RoutineExercise> routineExercise);
     }
 }

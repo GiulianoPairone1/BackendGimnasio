@@ -16,8 +16,7 @@ namespace Application.Interfaces
         RoutineDTO CreateRoutine(RoutineDTO newRoutineDto);
         RoutineDTO UpdateRoutine(int id, RoutineDTO updatedData);
         bool DeleteRoutine(int? routineId);
-
         List<RoutineWithExercisesDTO> GetRoutinesByTrainerId(int trainerId);
-
+        RoutineWithExercisesDTO RangeCreateRoutine(RoutineWithExercisesDTO newRoutineDto);
     }
 }
