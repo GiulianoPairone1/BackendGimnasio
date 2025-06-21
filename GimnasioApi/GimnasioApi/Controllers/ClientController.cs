@@ -32,7 +32,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin, SuperAdmin")]
+   
         [HttpPost]
         public IActionResult Add([FromBody] ClientDTO clientDto)
         {
