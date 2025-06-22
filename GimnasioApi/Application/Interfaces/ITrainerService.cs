@@ -12,5 +12,7 @@ namespace Application.Interfaces
     {
         List<TrainerDTO> GetAll();
         TrainerDTO Create(TrainerDTO trainerDTO);
+
+        TrainerDTO UpdateProfile(int trainerId, TrainerDTO trainerDto);
     }
 }

@@ -33,6 +33,28 @@ namespace Application.Services
                 .ToList();
         }
 
+        public TrainerDTO UpdateProfile(int trainerId, TrainerDTO trainerDto)
+        {
+
+            var trainer = _trainerRepository.GetById(trainerId)
+                         ?? throw new KeyNotFoundException("Cliente no encontrado.");
+
+
+            if (!trainer.IsAvailable)
+                throw new InvalidOperationException("El cliente ha sido dado de baja y no puede ser actualizado.");
+            if (string.IsNullOrWhiteSpace(trainerDto.Email))
+                throw new InvalidOperationException("El correo ingresado ya está en uso.");
+                if (string.IsNullOrWhiteSpace(trainerDto.Surname))
+                    throw new InvalidOperationException("El apellido no puede estar vacío.");
+            if (!System.Text.RegularExpressions.Regex.IsMatch(trainerDto.Phone, @"^\+?\d{7,15}$"))
+                throw new InvalidOperationException("El número de teléfono ingresado no es válido.");
+     
+
+            trainerDto.UpdateTrainer(trainer);
+            _trainerRepository.update(trainer);
+            return TrainerDTO.FromTrainer(trainer);
+        }
+
         public TrainerDTO Create(TrainerDTO trainerDTO)
         {
             var trainer = trainerDTO.ToTrainer();

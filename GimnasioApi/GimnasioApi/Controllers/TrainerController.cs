@@ -26,6 +26,29 @@ namespace GimnasioApi.Controllers
             return Ok(trainers);
         }
 
+        [Authorize(Roles = "Trainer, SuperAdmin, Admin")]
+        [HttpPut("UpdateProfile/{trainerId}")]
+        public IActionResult UpdateProfile(int trainerId, TrainerDTO trainerDto)
+        {
+            try
+            {
+                var updatedTrainer = _trainerService.UpdateProfile(trainerId, trainerDto);
+                return Ok(updatedTrainer);
+            }
+            catch (KeyNotFoundException knfEx)
+            {
+                return NotFound(knfEx.Message);
+            }
+            catch (InvalidOperationException invOpEx)
+            {
+                return BadRequest(invOpEx.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
+        }
+
         [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] TrainerDTO trainerDto)
