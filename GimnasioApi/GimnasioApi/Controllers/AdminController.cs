@@ -164,6 +164,26 @@ namespace GimnasioApi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,SuperAdmin")]
+        [HttpGet("GetUsersNotAvailable")]
+        public IActionResult GetUsersNotAvailable()
+        {
+            try
+            {
+                var users = _adminService.GetUsersNotAvailable();
+                return Ok(users);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error inesperado: {ex.Message}");
+            }
+        }
+
+
 
         [Authorize(Roles = "Admin,SuperAdmin")]
         [HttpGet("GetUsersAvailableByType")]

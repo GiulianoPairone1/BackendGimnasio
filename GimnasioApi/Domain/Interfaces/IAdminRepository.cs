@@ -12,5 +12,7 @@ namespace Domain.Interfaces
         User GetUserByEmail(string email);
         List<User> GetUsersAvailable();
         List<T> GetUsersAvailable<T>() where T : User;
+
+        List<User> GetUsersNotAvailable();
     }
 }

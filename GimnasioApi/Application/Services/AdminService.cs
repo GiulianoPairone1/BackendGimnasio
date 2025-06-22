@@ -87,6 +87,16 @@ namespace Application.Services
             return users.Select(UserDTO.FromUser).ToList();
         }
 
+        public List<UserDTO> GetUsersNotAvailable()
+        {
+            var users = _adminRepository.GetUsersNotAvailable();
+
+            if (users == null || !users.Any())
+                throw new KeyNotFoundException("No hay usuarios suspendidos.");
+
+            return users.Select(UserDTO.FromUser).ToList();
+        }
+
         public List<UserDTO> GetUsersAvailable<T>() where T : User //Este método es para traer usuarios según el tipo (Client, Trainer, etc)
         {
 

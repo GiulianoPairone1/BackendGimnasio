@@ -33,5 +33,12 @@ namespace Infrastructure.Data
                            .Where(u => u.IsAvailable)
                            .ToList();
         }
+
+        public List<User> GetUsersNotAvailable()
+        {
+            return _applicationDbContext.Users
+                           .Where(u => u.IsAvailable == false)
+                           .ToList();
+        }
     }
 }

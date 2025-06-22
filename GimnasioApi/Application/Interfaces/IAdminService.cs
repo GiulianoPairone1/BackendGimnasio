@@ -18,10 +18,13 @@ namespace Application.Interfaces
         UserDTO GetUserByEmail(string email);
 
         List<UserDTO> GetUsersAvailable();
+        List<UserDTO> GetUsersNotAvailable();
         List<UserDTO> GetUsersAvailable<T>() where T : User;
         bool DisableUser(string mail);
         bool ActivateUser(string email);
 
         bool HardDeleteUser(string mail);
+
+        
     }
 }
