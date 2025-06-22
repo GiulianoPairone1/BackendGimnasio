@@ -104,8 +104,6 @@ namespace GimnasioApi.Controllers
             try
             {
                 var routines = _routineService.GetRoutinesByTrainerId(trainerId);
-                if (routines == null || routines.Count == 0)
-                    return NotFound("Usted no tiene rutinas creadas.");
 
                 return Ok(routines);
             }
