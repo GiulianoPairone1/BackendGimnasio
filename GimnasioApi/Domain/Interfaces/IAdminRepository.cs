@@ -14,5 +14,6 @@ namespace Domain.Interfaces
         List<T> GetUsersAvailable<T>() where T : User;
 
         List<User> GetUsersNotAvailable();
+        User? GetUserById(int? id);
     }
 }

@@ -18,6 +18,11 @@ namespace Infrastructure.Data
             return _applicationDbContext.Users.SingleOrDefault(p => p.Email == email);
         }
 
+        public User? GetUserById(int? id)
+        {
+            return _applicationDbContext.Users.SingleOrDefault(p => p.Id == id);
+        }
+
         public List<User> GetUsersAvailable()
         {
             return _applicationDbContext.Users

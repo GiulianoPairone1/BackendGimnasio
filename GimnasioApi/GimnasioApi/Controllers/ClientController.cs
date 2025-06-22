@@ -3,6 +3,7 @@ using Application.Models.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace GimnasioApi.Controllers
 {
@@ -118,7 +119,6 @@ namespace GimnasioApi.Controllers
                 return StatusCode(500, $"Error inesperado: {ex.Message}");
             }
         }
-
 
         [Authorize(Roles = "Admin, SuperAdmin")]
         [HttpGet("ById/{clientId}")]

@@ -25,6 +25,8 @@ namespace Application.Interfaces
 
         bool HardDeleteUser(string mail);
 
-        
+        UserDTO GetUserById(int id);
+
+
     }
 }

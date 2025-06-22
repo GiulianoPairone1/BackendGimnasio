@@ -1,14 +1,14 @@
 ﻿using Application.Interfaces;
 using Domain.Interfaces;
 using Application.Models.Dtos;
-
+using System.Security.Claims;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Enums;
+using System.Security.Claims;
 
 namespace Application.Services
 {
@@ -213,6 +213,16 @@ namespace Application.Services
             _userRepository.delete(existingUser);
 
             return true;
+        }
+
+        public UserDTO GetUserById(int id)
+        {
+
+            var user = _adminRepository.GetUserById(id)
+                           ?? throw new KeyNotFoundException("Usuario no encontrado.");
+
+
+            return UserDTO.FromUser(user);
         }
     }
 }
