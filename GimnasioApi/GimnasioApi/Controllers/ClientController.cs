@@ -80,7 +80,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Client, SuperAdmin")]
+        [Authorize(Roles = "Client, SuperAdmin, Admin")]
         [HttpGet("GetMyClientSessions/{clientId}")]
         public IActionResult GetMyGymSessions(int clientId)
         {
@@ -96,7 +96,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Client, SuperAdmin")]
+        [Authorize(Roles = "Client, SuperAdmin, Admin")]
         [HttpPut("UpdateProfile/{clientId}")]
         public IActionResult UpdateProfile(int clientId, ClientDTO clientDto)
         {

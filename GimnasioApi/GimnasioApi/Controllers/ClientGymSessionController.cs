@@ -16,7 +16,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Client, SuperAdmin")]
+        [Authorize(Roles = "Client, SuperAdmin, Admin")]
         [HttpPost("RegisterToGymSession/{clientId}/{sessionId}")]
         public IActionResult RegisterToGymSession(int clientId, int sessionId)
         {
@@ -39,7 +39,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Client, SuperAdmin")]
+        [Authorize(Roles = "Client, SuperAdmin, Admin")]
         [HttpDelete("UnregisterToGymSession/{clientId}/{sessionId}")]
         public IActionResult UnregisterFromGymSession(int clientId, int sessionId)
         {

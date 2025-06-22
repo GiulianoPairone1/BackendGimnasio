@@ -36,6 +36,9 @@ namespace GimnasioApi.Controllers
             }
         }
 
+
+        // Hola 
+
         [Authorize(Roles = "Trainer, SuperAdmin")]
         [HttpPost]
         public IActionResult Add([FromBody] RoutineExerciseDTO dto)

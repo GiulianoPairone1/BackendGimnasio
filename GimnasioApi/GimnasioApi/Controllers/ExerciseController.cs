@@ -27,7 +27,7 @@ namespace GimnasioApi.Controllers
             return Ok(exercises);
         }
 
-        [Authorize(Roles = "Trainer,SuperAdmin")]
+        [Authorize(Roles = "Trainer,SuperAdmin, Admin")]
         [HttpPost]
         public IActionResult Add([FromBody] ExerciseDTO exerciseDTO)
         {
@@ -56,7 +56,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Trainer,SuperAdmin")]
+        [Authorize(Roles = "Trainer,SuperAdmin, Admin")]
         [HttpPut("{id}")]
         public ActionResult<ExerciseDTO> UpdateExercise(int id, [FromBody] ExerciseDTO updatedExercise)
         {

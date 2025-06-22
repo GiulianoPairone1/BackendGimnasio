@@ -47,7 +47,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Trainer,SuperAdmin")]
+        [Authorize(Roles = "Trainer,SuperAdmin, Admin")]
         [HttpGet("GetMyTrainerSessions/{trainerId}")]
         public IActionResult GetMySessions(int trainerId)
         {
@@ -66,7 +66,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Trainer,SuperAdmin")]
+        [Authorize(Roles = "Trainer,SuperAdmin, Admin")]
         [HttpPost]
         public IActionResult Create([FromBody] GymSessionDTO newSessionDto)
         {
@@ -90,7 +90,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Trainer,SuperAdmin")]
+        [Authorize(Roles = "Trainer,SuperAdmin, Admin")]
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] GymSessionDTO updatedData)
         {

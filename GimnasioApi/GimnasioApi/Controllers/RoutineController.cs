@@ -118,7 +118,7 @@ namespace GimnasioApi.Controllers
         }
 
 
-        [Authorize(Roles = "Trainer, SuperAdmin")]
+        [Authorize(Roles = "Trainer, SuperAdmin, Admin")]
         [HttpPut("routine/{routineId}")]
         public IActionResult UpdateRoutine(int routineId, [FromBody] RoutineDTO updatedData)
         {
@@ -145,7 +145,7 @@ namespace GimnasioApi.Controllers
             }
         }
 
-        [Authorize(Roles = "Trainer, SuperAdmin")]
+        [Authorize(Roles = "Trainer, SuperAdmin, Admin")]
         [HttpDelete("routine/{routineId}")]
         public IActionResult Delete(int routineId)
         {
