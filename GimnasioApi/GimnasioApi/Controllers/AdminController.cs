@@ -186,8 +186,8 @@ namespace GimnasioApi.Controllers
 
 
         [Authorize(Roles = "Admin,SuperAdmin")]
-        [HttpDelete("DisableUser")]
-        public IActionResult DisableUser(string mail)
+        [HttpDelete("DisableUser/{mail}")]
+        public IActionResult DisableUser([FromRoute] string mail)
         {
             try
             {
