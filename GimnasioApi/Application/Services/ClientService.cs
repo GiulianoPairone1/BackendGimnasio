@@ -63,6 +63,7 @@ namespace Application.Services
 
             return gymSessions.Select(gs => new GymSessionDTO
             {
+                Id = gs.Id,
                 TrainerId = gs.Id,
                 RoutineId = gs.RoutineId,
                 SessionDate = gs.SessionDate,
