@@ -11,10 +11,12 @@ namespace GimnasioApi.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
+        private readonly ISendEmailService _sendEmailService;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService,ISendEmailService sendEmailService)
         {
             _accountService = accountService;
+            _sendEmailService = sendEmailService;
         }
 
         [HttpPost("forgot-password")]
@@ -22,6 +24,11 @@ namespace GimnasioApi.Controllers
         {
             var token = await _accountService.GeneratePasswordResetTokenAsync(request.Email);
             // Enviar por email, o devolver si es entorno de pruebas.
+            _sendEmailService.SendEmail(
+                request.Email,
+                "Token",
+                $"Token: {token}"
+                );
             return Ok(new { Token = token });
         }
 
