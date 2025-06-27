@@ -38,7 +38,7 @@ namespace Application.Models.Dtos
                 Name = this.Name,
                 Surname = this.Surname,
                 Email = this.Email,
-                Password = this.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(this.Password),
                 Phone = this.Phone,
                 Weight = this.Weight,
                 Height = this.Height,
@@ -53,7 +53,7 @@ namespace Application.Models.Dtos
             client.Name = this.Name;
             client.Surname = this.Surname;
             client.Email = this.Email;
-            client.Password = this.Password;
+            client.Password = BCrypt.Net.BCrypt.HashPassword(this.Password);
             client.Phone = this.Phone;
             client.Weight = this.Weight;
             client.Height = this.Height;
@@ -65,7 +65,7 @@ namespace Application.Models.Dtos
                 Name = client.Name,
                 Surname = client.Surname,
                 Email = client.Email,
-                Password = client.Password,
+                Password = "",
                 Phone = client.Phone,
                 Weight = client.Weight,
                 Height = client.Height,

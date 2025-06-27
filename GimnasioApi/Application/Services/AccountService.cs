@@ -28,6 +28,7 @@ namespace Application.Services
             user.TokenExpiration = DateTime.UtcNow.AddMinutes(30);
             await _userRepository.UpdateAsync(user);
 
+
             return token;
         }
 
