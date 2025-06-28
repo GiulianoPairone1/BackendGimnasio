@@ -53,7 +53,8 @@ namespace Application.Models.Dtos
             client.Name = this.Name;
             client.Surname = this.Surname;
             client.Email = this.Email;
-            client.Password = BCrypt.Net.BCrypt.HashPassword(this.Password);
+            if (this.Password is not null || this.Password != "")
+                client.Password = BCrypt.Net.BCrypt.HashPassword(this.Password);
             client.Phone = this.Phone;
             client.Weight = this.Weight;
             client.Height = this.Height;
