@@ -18,7 +18,7 @@ namespace Application.Models.Dtos
         [Required]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
         [Required]
         [Phone]
         public string Phone { get; set; }
@@ -32,7 +32,7 @@ namespace Application.Models.Dtos
                 Name = this.Name,
                 Surname = this.Surname,
                 Email = this.Email,
-                Password = this.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(this.Password),
                 Phone = this.Phone,
                 TrainerSpeciality=this.TrainerSpeciality,
                 UserType = UserType.Trainer,
@@ -46,7 +46,8 @@ namespace Application.Models.Dtos
             trainer.Name = this.Name;
             trainer.Surname = this.Surname;
             trainer.Email = this.Email;
-            trainer.Password = this.Password;
+            if (this.Password is not null || this.Password != "")
+                trainer.Password = BCrypt.Net.BCrypt.HashPassword(this.Password);
             trainer.Phone = this.Phone;
             trainer.TrainerSpeciality = this.TrainerSpeciality;
         }
@@ -58,7 +59,7 @@ namespace Application.Models.Dtos
                 Name = trainer.Name,
                 Surname = trainer.Surname,
                 Email = trainer.Email,
-                Password = trainer.Password,
+                Password = "",
                 Phone = trainer.Phone,
                 TrainerSpeciality = trainer.TrainerSpeciality,
             };

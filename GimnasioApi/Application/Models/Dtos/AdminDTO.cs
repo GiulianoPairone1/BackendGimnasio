@@ -18,7 +18,7 @@ namespace Application.Models.Dtos
         [Required]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string? Password { get; set; }
         [Required]
         [Phone]
         public string Phone { get; set; }
@@ -31,7 +31,7 @@ namespace Application.Models.Dtos
                 Name = this.Name,
                 Surname = this.Surname,
                 Email = this.Email,
-                Password = this.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(this.Password),
                 Phone = this.Phone,
                 UserType = UserType.Admin,
                 IsAvailable = true
@@ -44,7 +44,8 @@ namespace Application.Models.Dtos
             admin.Name = this.Name;
             admin.Surname = this.Surname;
             admin.Email = this.Email;
-            admin.Password = this.Password;
+            if (this.Password is not null || this.Password != "")
+                admin.Password = BCrypt.Net.BCrypt.HashPassword(this.Password);
             admin.Phone = this.Phone;
         }
         public static AdminDTO FromAdmin(Admin admin)
@@ -54,7 +55,7 @@ namespace Application.Models.Dtos
                 Name = admin.Name,
                 Surname = admin.Surname,
                 Email = admin.Email,
-                Password = admin.Password,
+                Password = "",
                 Phone = admin.Phone,
             };
 

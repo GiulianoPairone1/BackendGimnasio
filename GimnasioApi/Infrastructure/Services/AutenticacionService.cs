@@ -38,7 +38,12 @@ namespace Infrastructure.Services
             if (user == null) return null;
 
             // Validación solo de email y contraseña
+            /*
             if (user.Password == authenticationRequest.Password)
+                return user;
+            */
+            //el BCrypt.Net.BCrypt.Verify compara contraseñas hasheadas
+            if (BCrypt.Net.BCrypt.Verify(authenticationRequest.Password, user.Password))
                 return user;
 
             return null;

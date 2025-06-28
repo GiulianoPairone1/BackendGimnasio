@@ -34,7 +34,7 @@ namespace Infrastructure.Data
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.PasswordResetToken == token);
         }
-        public async Task UpdateAsync(User user)
+        public virtual async Task UpdateAsync(User user)
         {
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
