@@ -67,6 +67,7 @@ namespace Application.Services
                 TrainerId = gs.Id,
                 RoutineId = gs.RoutineId,
                 SessionDate = gs.SessionDate,
+                SessionType = gs.SessionType
             }).ToList();
         }
 
